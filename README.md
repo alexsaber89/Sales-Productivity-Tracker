@@ -7,6 +7,7 @@ A company portal that allows Sales Reps to submit daily productivity data, as we
 * PTO request form, allowing the Sales Rep to choose PTO type and submit for management approval
 * Management view, enabling high-level dashboards in the future
 * [Mockup](https://app.moqups.com/alexsaber89@gmail.com/boE98GOFJX/edit/page/aa9df7b72)
+* [ERD](https://www.lucidchart.com/documents/edit/19141ec2-69a7-4e9a-8890-2aaae9e8120e#)
 
 ## Contributors
 [Alex Saber](http://github.com/alexsaber89)
