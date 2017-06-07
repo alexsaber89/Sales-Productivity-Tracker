@@ -1,9 +1,34 @@
 ﻿/*******************
+    General
+*******************/
+
+.border {
+    border: 1px solid black;
+}
+
+.margin-0-auto {
+    margin: 0 auto;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+/*******************
     Navbar
 *******************/
 
 .pointer {
     cursor: pointer;
+}
+
+/*******************
+    Login
+*******************/
+
+.login-container,
+.register-container {
+    margin: 2%;
 }
 
 /*******************
