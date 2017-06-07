@@ -17,6 +17,11 @@ app.config([
             {
                 templateUrl: "app/partials/Register.html",
                 controller: "registerController"
+            })
+            .when("/productivityform",
+            {
+                templateUrl: "app/partials/ProductivityForm.html",
+                controller: "productivityFormController"
             });
 
     }
