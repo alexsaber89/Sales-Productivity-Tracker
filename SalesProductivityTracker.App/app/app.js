@@ -22,6 +22,11 @@ app.config([
             {
                 templateUrl: "app/partials/ProductivityForm.html",
                 controller: "productivityFormController"
+            })
+            .when("/requestpto",
+            {
+                templateUrl: "app/partials/PTORequestForm.html",
+                controller: "ptoRequestFormController"
             });
 
     }

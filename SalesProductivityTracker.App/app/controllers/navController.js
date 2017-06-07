@@ -1,15 +1,15 @@
 ﻿app.controller("navController", ["$scope", "$location", function ($scope, $location) {
 
+    $scope.showLogin = () => {
+        $location.url('/');
+    };
+
     $scope.showProductivityForm = () => {
         $location.url('productivityform');
     };
 
-    $scope.showRegister = () => {
-        $location.url('/register');
-    };
-
-    $scope.showHome = () => {
-        $location.url('/home');
+    $scope.showPTORequestForm = () => {
+        $location.url('/requestpto');
     };
 
 }]);
