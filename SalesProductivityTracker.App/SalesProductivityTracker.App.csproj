@@ -287,6 +287,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\navController.js" />
     <Content Include="app\controllers\productivityLogController.js" />
     <Content Include="app\controllers\registerController.js" />
     <Content Include="app\partials\EmployeeHome-ProductivityLog.html" />
