@@ -287,10 +287,15 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\navController.js" />
+    <Content Include="app\controllers\productivityFormController.js" />
     <Content Include="app\controllers\productivityLogController.js" />
+    <Content Include="app\controllers\ptoRequestFormController.js" />
     <Content Include="app\controllers\registerController.js" />
     <Content Include="app\partials\EmployeeHome-ProductivityLog.html" />
     <Content Include="app\partials\Login.html" />
+    <Content Include="app\partials\ProductivityForm.html" />
+    <Content Include="app\partials\PTORequestForm.html" />
     <Content Include="app\partials\Register.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -390,7 +395,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54022</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54022/</IISUrl>
+          <IISUrl>http://localhost:8888/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

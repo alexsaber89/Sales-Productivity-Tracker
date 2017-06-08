@@ -1,0 +1,50 @@
+﻿<div class="productivity-form-container">
+
+    <form name="productivity-form" ng-submit="submitProductivityReport(productivityForm)">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="text-align-center">Productivity Form</h2>
+            </div>
+        </div>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input required type="text" class="form-control margin-0-auto" id="productivityDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired report date" ng-model="productivityForm.productivityDate" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input required type="number" class="form-control margin-0-auto" id="bookedDailyRevenue" placeholder="Enter daily bookings amount (USD)" ng-model="productivityForm.bookedDailyRevenue" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input required type="number" class="form-control margin-0-auto" id="dailyCasesCompleted" placeholder="Enter number of completed cases" ng-model="productivityForm.dailyCasesCompleted" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input required type="number" class="form-control margin-0-auto" id="dailyCallCount" placeholder="Enter number of calls" ng-model="productivityForm.dailyCallCount" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input required type="number" class="form-control margin-0-auto" id="dailyEmailCount" placeholder="Enter number of emails" ng-model="productivityForm.dailyEmailCount" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-align-center">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
