@@ -7,24 +7,30 @@
                 <h2 class="text-align-center">PTO Request Form</h2>
             </div>
         </div>
+        <hr />
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <input required type="text" class="form-control margin-0-auto" id="requestedPTODate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired report date" ng-model="ptoRequestForm.requestedPTODate" />
+            <div class="col-md-6 col-md-offset-3 text-align-center">
+                <label>
+                    <input type="radio" ng-model="ptoRequestForm.ptoType" value="vacation">
+                    Vacation
+                </label>
+                <label>
+                    <input type="radio" ng-model="ptoRequestForm.ptoType" value="personal">
+                    Personal
+                </label>
             </div>
         </div>
 
-        <!--TODO: add ptoType drop down-->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <input required type="number" class="form-control margin-0-auto" id="ptoType" placeholder="Enter daily bookings amount (USD)" ng-model="ptoRequestForm.ptoType" />
+                <input required type="text" class="form-control margin-0-auto" id="requestedPTODate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired PTO date" ng-model="ptoRequestForm.requestedPTODate" />
             </div>
         </div>
 
-        <!--TODO: replace with textarea-->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <input required type="text" class="form-control margin-0-auto" id="notes" placeholder="Enter any notes" ng-model="ptoRequestForm.notes" />
+                <textarea required class="form-control margin-0-auto" id="notes" placeholder="Enter notes" ng-model="ptoRequestForm.notes"></textarea>
             </div>
         </div>
 
