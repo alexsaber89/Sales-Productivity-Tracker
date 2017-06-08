@@ -16,7 +16,8 @@
 
 .login-container,
 .register-container,
-.productivity-form-container {
+.productivity-form-container,
+.pto-request-form-container {
     margin: 2%;
 }
 
