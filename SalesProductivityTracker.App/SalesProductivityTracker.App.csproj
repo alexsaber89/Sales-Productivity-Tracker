@@ -271,6 +271,14 @@
     <Compile Include="Migrations\201706060102054_Initial.Designer.cs">
       <DependentUpon>201706060102054_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706081630314_ptoRequestTimestamp.cs" />
+    <Compile Include="Migrations\201706081630314_ptoRequestTimestamp.Designer.cs">
+      <DependentUpon>201706081630314_ptoRequestTimestamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706081646204_ptoRequestIsApprovedDefault.cs" />
+    <Compile Include="Migrations\201706081646204_ptoRequestIsApprovedDefault.Designer.cs">
+      <DependentUpon>201706081646204_ptoRequestIsApprovedDefault.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -375,6 +383,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706060102054_Initial.resx">
       <DependentUpon>201706060102054_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081630314_ptoRequestTimestamp.resx">
+      <DependentUpon>201706081630314_ptoRequestTimestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081646204_ptoRequestIsApprovedDefault.resx">
+      <DependentUpon>201706081646204_ptoRequestIsApprovedDefault.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
