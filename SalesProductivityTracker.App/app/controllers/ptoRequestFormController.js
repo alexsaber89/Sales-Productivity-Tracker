@@ -3,7 +3,6 @@
     $scope.submitPTORequestForm = submitPTORequestForm;
 
     function submitPTORequestForm(ptoRequestForm) {
-        var timestamp = new Date().toString();
         console.log("timestamp: ", timestamp);
         console.log("requestedPTODate: ", ptoRequestForm.requestedPTODate);
         console.log("ptoType: ", ptoRequestForm.ptoType);
