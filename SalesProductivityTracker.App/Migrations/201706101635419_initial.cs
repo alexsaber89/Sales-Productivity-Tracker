@@ -3,7 +3,7 @@ namespace SalesProductivityTracker.App.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -101,10 +101,10 @@ namespace SalesProductivityTracker.App.Migrations
                         DailyCasesCompleted = c.Int(nullable: false),
                         DailyCallCount = c.Int(nullable: false),
                         DailyEmailCount = c.Int(nullable: false),
-                        EmployeeId_Id = c.Int(),
+                        EmployeeId_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id)
+                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id, cascadeDelete: true)
                 .Index(t => t.EmployeeId_Id);
             
             CreateTable(
@@ -114,13 +114,13 @@ namespace SalesProductivityTracker.App.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         TimeStamp = c.DateTime(nullable: false),
                         RequestedPTODate = c.DateTime(nullable: false),
-                        PTOType = c.String(),
-                        Notes = c.String(),
+                        PTOType = c.String(nullable: false),
+                        Notes = c.String(nullable: false),
                         IsApproved = c.Boolean(nullable: false),
-                        EmployeeId_Id = c.Int(),
+                        EmployeeId_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id)
+                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id, cascadeDelete: true)
                 .Index(t => t.EmployeeId_Id);
             
             CreateTable(
