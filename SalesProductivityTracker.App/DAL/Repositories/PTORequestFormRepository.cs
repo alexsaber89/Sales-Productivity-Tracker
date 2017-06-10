@@ -7,11 +7,11 @@ using SalesProductivityTracker.App.Models;
 
 namespace SalesProductivityTracker.App.DAL.Repositories
 {
-    public class GetPTOFormsRepository : IGetPTOFormsRepository
+    public class PTORequestFormRepository : IPTORequestFormRepository
     {
         readonly ApplicationDbContext _context;
 
-        public GetPTOFormsRepository(ApplicationDbContext context)
+        public PTORequestFormRepository(ApplicationDbContext context)
         {
             _context = context;
         }

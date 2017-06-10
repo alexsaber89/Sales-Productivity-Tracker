@@ -259,8 +259,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PTORequestFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DAL\IRepositories\IGetPTOFormsRepository.cs" />
-    <Compile Include="DAL\Repositories\GetPTOFormsRepository.cs" />
+    <Compile Include="DAL\IRepositories\IPTORequestFormRepository.cs" />
+    <Compile Include="DAL\Repositories\PTORequestFormRepository.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />

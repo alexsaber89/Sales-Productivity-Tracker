@@ -10,9 +10,9 @@ namespace SalesProductivityTracker.App.Controllers
 {
     public class PTORequestFormController : ApiController
     {
-        public IGetPTOFormsRepository _repo { get; set; }
+        public IPTORequestFormRepository _repo { get; set; }
 
-        public PTORequestFormController(IGetPTOFormsRepository repo)
+        public PTORequestFormController(IPTORequestFormRepository repo)
         {
             _repo = repo;
         }

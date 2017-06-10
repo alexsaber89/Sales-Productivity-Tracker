@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalesProductivityTracker.App.DAL.IRepositories
 {
-    public interface IGetPTOFormsRepository
+    public interface IPTORequestFormRepository
     {
         IEnumerable<PTORequestForm> GetAllPTOForms();
         IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId);
