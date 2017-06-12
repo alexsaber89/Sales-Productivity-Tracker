@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SalesProductivityTracker.App.Models;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using Microsoft.AspNet.Identity;
 
 namespace SalesProductivityTracker.App.DAL.Repositories
 {
@@ -29,6 +32,25 @@ namespace SalesProductivityTracker.App.DAL.Repositories
         public PTORequestForm GetPTOFormByPTOFormId(int ptoFormId)
         {
             return _context.PTORequestForms.FirstOrDefault(f => f.Id == ptoFormId);
+        }
+
+        public void SubmitPTOForm(PTORequestForm ptoForm)
+        {
+            try
+            {
+                _context.PTORequestForms.Add(ptoForm);
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
         }
     }
 }

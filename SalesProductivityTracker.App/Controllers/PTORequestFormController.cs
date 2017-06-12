@@ -40,5 +40,12 @@ namespace SalesProductivityTracker.App.Controllers
             var form = _repo.GetPTOFormByPTOFormId(formId);
             return form;
         }
+
+        [HttpPost]
+        [Route("api/pto-forms")]
+        public void SubmitPTOForm(PTORequestForm ptoForm)
+        {
+            _repo.SubmitPTOForm(ptoForm);
+        }
     }
 }
