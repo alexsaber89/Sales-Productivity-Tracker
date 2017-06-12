@@ -1,7 +1,9 @@
-﻿using SalesProductivityTracker.App.DAL.IRepositories;
+﻿using Microsoft.AspNet.Identity;
+using SalesProductivityTracker.App.DAL.IRepositories;
 using SalesProductivityTracker.App.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -17,10 +19,14 @@ namespace SalesProductivityTracker.App.Controllers
             _repo = repo;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("api/pto-forms")]
         public List<PTORequestForm> Get()
         {
+            string user = User.Identity.GetUserId();
+            Debug.WriteLine("CURRENT USER ID: " + user);
+
             var forms = _repo.GetAllPTOForms().ToList();
             return forms;
         }
