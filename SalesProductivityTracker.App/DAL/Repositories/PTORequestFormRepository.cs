@@ -28,7 +28,7 @@ namespace SalesProductivityTracker.App.DAL.Repositories
 
         public PTORequestForm GetPTOFormByPTOFormId(int ptoFormId)
         {
-            throw new NotImplementedException();
+            return _context.PTORequestForms.FirstOrDefault(f => f.Id == ptoFormId);
         }
     }
 }

@@ -17,26 +17,28 @@ namespace SalesProductivityTracker.App.Controllers
             _repo = repo;
         }
 
+        [HttpGet]
         [Route("api/pto-forms")]
-        public List<PTORequestForm> GetPTOFormsByEmployeeId(int? employeeId, int? formId)
+        public List<PTORequestForm> Get()
         {
-            if (employeeId.HasValue)
-            {
-                var forms = _repo.GetPTOFormsByEmployeeId(employeeId.Value).ToList();
-                return forms;
-            }
+            var forms = _repo.GetAllPTOForms().ToList();
+            return forms;
+        }
 
-            else if (formId.HasValue)
-            {
-                var forms = new List<PTORequestForm> { _repo.GetPTOFormByPTOFormId(formId.Value) };
-                return forms;
-            }
-            
-            else
-            {
-                var forms = _repo.GetAllPTOForms().ToList();
-                return forms;
-            }
+        [HttpGet]
+        [Route("api/pto-forms-by-employee/{employeeId}")]
+        public List<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
+        {
+            var forms = _repo.GetPTOFormsByEmployeeId(employeeId).ToList();
+            return forms;
+        }
+
+        [HttpGet]
+        [Route("api/pto-form/{formId}")]
+        public PTORequestForm GetPTOFormByPTOFormId(int formId)
+        {
+            var form = _repo.GetPTOFormByPTOFormId(formId);
+            return form;
         }
     }
 }
