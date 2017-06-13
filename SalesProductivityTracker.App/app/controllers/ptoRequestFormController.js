@@ -19,8 +19,8 @@
             });
     }
 
-    function getPTOFormsByEmployeeId(employeeId) {
-        $http.get(`api/pto-forms-by-employee/${employeeId}`)
+    function getPTOFormsByEmployeeId() {
+        $http.get("api/pto-forms-by-employee")
             .then(function(result) {
                 console.log("PTO By Employee ID", result);
             });

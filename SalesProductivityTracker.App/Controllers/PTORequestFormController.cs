@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace SalesProductivityTracker.App.Controllers
 {
+    [Authorize]
     public class PTORequestFormController : ApiController
     {
         public IPTORequestFormRepository _repo { get; set; }
@@ -19,23 +20,22 @@ namespace SalesProductivityTracker.App.Controllers
             _repo = repo;
         }
 
-        [Authorize]
         [HttpGet]
         [Route("api/pto-forms")]
         public List<PTORequestForm> Get()
         {
-            string user = User.Identity.GetUserId();
-            Debug.WriteLine("CURRENT USER ID: " + user);
-
             var forms = _repo.GetAllPTOForms().ToList();
             return forms;
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employee/{employeeId}")]
-        public List<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
+        [Route("api/pto-forms-by-employee")]
+        public List<PTORequestForm> GetPTOFormsByEmployeeId()
         {
-            var forms = _repo.GetPTOFormsByEmployeeId(employeeId).ToList();
+            string aspNetUserId = User.Identity.GetUserId();
+            Debug.WriteLine("aspNetUserId: " + aspNetUserId);
+
+            var forms = _repo.GetPTOFormsByEmployeeId(aspNetUserId).ToList();
             return forms;
         }
 

@@ -24,9 +24,10 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             return _context.PTORequestForms;
         }
 
-        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
+        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
         {
-            return _context.PTORequestForms.Where(f => f.Employee.Id == employeeId);
+            var employee = _context.Employees.FirstOrDefault(e => e.RootUserId.Id == aspNetUserId);
+            return _context.PTORequestForms.Where(f => f.Employee.Id == employee.Id);
         }
 
         public PTORequestForm GetPTOFormByPTOFormId(int ptoFormId)
