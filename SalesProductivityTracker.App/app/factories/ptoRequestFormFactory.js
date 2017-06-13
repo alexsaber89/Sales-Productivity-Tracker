@@ -1,10 +1,11 @@
-﻿app.service("ptoRequestFormService", ["$http", function ($http) {
+﻿app.factory("ptoRequestFormFactory", ["$q", "$http", function ($q, $http) {
 
-    this.submitPTORequestForm = submitPTORequestForm;
-    this.getAllPTOForms = getAllPTOForms;
-    this.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
-    //this.getPTOFormByPTOFormId = getPTOFormByPTOFormId;
-    //this.deletePTOFormByPTOFormId = deletePTOFormByPTOFormId;
+    var service = {
+        submitPTORequestForm: submitPTORequestForm,
+        getAllPTOForms: getAllPTOForms,
+        getPTOFormsByEmployeeId: getPTOFormsByEmployeeId
+    }
+    return service;
 
     function submitPTORequestForm(ptoRequestForm) {
         $http.post("/api/pto-forms", ptoRequestForm)
@@ -21,12 +22,15 @@
             });
     }
 
+    //$http.get("api/pto-forms-by-employeeID")
     function getPTOFormsByEmployeeId() {
-        $http.get("api/pto-forms-by-employeeID")
-            .then(function (result) {
-                console.log("PTO By Employee ID", result);
-            });
-    }
+        return $q((resolve, reject) => {
+            $http.get("api/pto-forms-by-employeeID")
+             .then((response) => {
+                 resolve(response);
+             });
+        });
+    };
 
     //TODO: add existing PTOFormID from ng-model
     //function getPTOFormByPTOFormId() {

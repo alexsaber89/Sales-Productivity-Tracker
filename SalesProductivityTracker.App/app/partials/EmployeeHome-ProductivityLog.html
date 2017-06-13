@@ -23,12 +23,13 @@
 
     <div ng-show="ptoLog">
         <h2 class="text-align-center">Submitted PTO</h2>
-        <!--<div class="panel panel-info" ng-repeat="">
+        <div class="panel panel-info" ng-repeat="ptoRequestForm in ptoRequestForms">
             <div class="panel-body">
-                Panel content
+                {{ptoRequestForm.PTOType}}
+                {{ptoRequestForm.RequestedPTODate}}
             </div>
-            <div class="panel-footer">Panel footer</div>
-        </div>-->
+            <div class="panel-footer">{{ptoRequestForm.Notes}}</div>
+        </div>
     </div>
 
 </div>

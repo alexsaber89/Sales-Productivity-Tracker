@@ -304,7 +304,7 @@
     <Content Include="app\partials\ProductivityForm.html" />
     <Content Include="app\partials\PTORequestForm.html" />
     <Content Include="app\partials\Register.html" />
-    <Content Include="app\services\ptoRequestFormService.js" />
+    <Content Include="app\factories\ptoRequestFormFactory.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
