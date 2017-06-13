@@ -1,1 +1,34 @@
-﻿<h1>Employee Home - Productivity Log</h1>
+﻿<div class="employee-home-container">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="text-align-center">Employee Portal</h2>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-click="showProductivityLog()" class="pointer"><a>Submitted Productivity</a></li>
+        <li role="presentation" ng-click="showPTOLog()" class="pointer"><a>Submitted PTO</a></li>
+    </ul>
+
+    <div ng-show="productivityLog">
+        <h2 class="text-align-center">Submitted Productivity</h2>
+        <!--<div class="panel panel-primary" ng-repeat="">
+            <div class="panel-body">
+                Panel content
+            </div>
+            <div class="panel-footer">Panel footer</div>
+        </div>-->
+    </div>
+
+    <div ng-show="ptoLog">
+        <h2 class="text-align-center">Submitted PTO</h2>
+        <!--<div class="panel panel-info" ng-repeat="">
+            <div class="panel-body">
+                Panel content
+            </div>
+            <div class="panel-footer">Panel footer</div>
+        </div>-->
+    </div>
+
+</div>

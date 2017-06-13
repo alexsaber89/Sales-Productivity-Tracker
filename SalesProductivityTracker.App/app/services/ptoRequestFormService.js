@@ -1,9 +1,10 @@
-﻿app.controller("ptoRequestFormController", ["$scope", "$location", "ptoRequestFormService", function ($scope, $location, ptoRequestFormService) {
+﻿app.service("ptoRequestFormService", ["$http", function ($http) {
 
-    $scope.submitPTORequestForm = submitPTORequestForm;
-    $scope.getAllPTOForms = getAllPTOForms;
-    $scope.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
-    //$scope.getPTOFormByPTOFormId = getPTOFormByPTOFormId;
+    this.submitPTORequestForm = submitPTORequestForm;
+    this.getAllPTOForms = getAllPTOForms;
+    this.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
+    //this.getPTOFormByPTOFormId = getPTOFormByPTOFormId;
+    //this.deletePTOFormByPTOFormId = deletePTOFormByPTOFormId;
 
     function submitPTORequestForm(ptoRequestForm) {
         $http.post("/api/pto-forms", ptoRequestForm)
@@ -12,17 +13,17 @@
             });
     }
 
-    //TODO: Move to manager pto controller
+    //TODO:  Move to manager pto service
     function getAllPTOForms() {
         $http.get("/api/pto-forms")
-            .then(function(result) {
+            .then(function (result) {
                 console.log("all pto forms", result);
             });
     }
 
     function getPTOFormsByEmployeeId() {
         $http.get("api/pto-forms-by-employeeID")
-            .then(function(result) {
+            .then(function (result) {
                 console.log("PTO By Employee ID", result);
             });
     }
