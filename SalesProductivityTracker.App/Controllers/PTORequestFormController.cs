@@ -29,7 +29,7 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employee")]
+        [Route("api/pto-forms-by-employeeID")]
         public List<PTORequestForm> GetPTOFormsByEmployeeId()
         {
             string aspNetUserId = User.Identity.GetUserId();
@@ -40,11 +40,17 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-form/{formId}")]
-        public PTORequestForm GetPTOFormByPTOFormId(int formId)
+        [Route("api/pto-form")]
+        public PTORequestForm GetPTOFormByPTOFormId()
         {
-            var form = _repo.GetPTOFormByPTOFormId(formId);
-            return form;
+            throw new NotImplementedException();
+        }
+
+        [HttpDelete]
+        [Route("api/pto-form")]
+        public PTORequestForm DeletePTOFormByPTOFormId()
+        {
+            throw new NotImplementedException();
         }
 
         [HttpPost]

@@ -11,7 +11,8 @@ namespace SalesProductivityTracker.App.DAL.IRepositories
     {
         IEnumerable<PTORequestForm> GetAllPTOForms();
         IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId);
-        PTORequestForm GetPTOFormByPTOFormId(int ptoFormId);
+        PTORequestForm GetPTOFormByPTOFormId(int formId);
+        void DeletePTOFormByPTOFormId(int formId);
         void SubmitPTOForm(PTORequestForm ptoForm);
     }
 }

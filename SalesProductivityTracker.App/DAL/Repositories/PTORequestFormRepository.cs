@@ -30,9 +30,16 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             return _context.PTORequestForms.Where(f => f.Employee.Id == employee.Id);
         }
 
-        public PTORequestForm GetPTOFormByPTOFormId(int ptoFormId)
+        //TODO:  Implement logic to get PTO by ID
+        public PTORequestForm GetPTOFormByPTOFormId(int formId)
         {
-            return _context.PTORequestForms.FirstOrDefault(f => f.Id == ptoFormId);
+            return _context.PTORequestForms.FirstOrDefault(e => e.Id == formId);
+        }
+
+        //TODO:  Implement logic to delete PTO by ID
+        public void DeletePTOFormByPTOFormId(int formId)
+        {
+            throw new NotImplementedException();
         }
 
         public void SubmitPTOForm(PTORequestForm ptoForm)

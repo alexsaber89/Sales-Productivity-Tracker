@@ -20,17 +20,26 @@
     }
 
     function getPTOFormsByEmployeeId() {
-        $http.get("api/pto-forms-by-employee")
+        $http.get("api/pto-forms-by-employeeID")
             .then(function(result) {
                 console.log("PTO By Employee ID", result);
             });
     }
 
-    function getPTOFormByPTOFormId(formId) {
-        $http.get(`api/pto-forms-by-employee/${formId}`)
-            .then(function(result) {
-                console.log("PTO By PTO ID", result);
-            });
-    }
+    //TODO: add existing PTOFormID from ng-model
+    //function getPTOFormByPTOFormId() {
+    //    $http.get(`api/pto-form`)
+    //        .then(function(result) {
+    //            console.log("PTO By PTO ID", result);
+    //        });
+    //}
+
+    //TODO: add existing PTOFormID from ng-model
+    //function deletePTOFormByPTOFormId() {
+    //    $http.get(`api/pto-form`)
+    //        .then(function (result) {
+    //            console.log("PTO By PTO ID", result);
+    //        });
+    //}
 
 }]);
