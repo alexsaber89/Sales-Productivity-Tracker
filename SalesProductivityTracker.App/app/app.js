@@ -1,4 +1,4 @@
-﻿var app = angular.module("SalesProductivityTracker", ["ngRoute"]);
+﻿var app = angular.module("SalesProductivityTracker", ["ngRoute", "app.directives.ptoLog"]);
 
 app.config([
     "$routeProvider", function ($routeProvider) {
@@ -10,8 +10,8 @@ app.config([
             })
             .when("/home",
             {
-                templateUrl: "app/partials/EmployeeHome-ProductivityLog.html",
-                controller: "productivityLogController"
+                templateUrl: "app/partials/EmployeeHome.html",
+                controller: "employeeHomeController"
             })
             .when("/register",
             {

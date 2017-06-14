@@ -1,13 +1,19 @@
-﻿app.controller("ptoRequestFormController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
+﻿app.controller("ptoRequestFormController", ["$scope", "$location", "ptoRequestFormFactory", function ($scope, $location, ptoRequestFormFactory) {
 
     $scope.submitPTORequestForm = submitPTORequestForm;
+    let currentEmployeeId = getCurrentEmployeeId();
+
+    function getCurrentEmployeeId() {
+        ptoRequestFormFactory.getCurrentEmployeeId().then(function (response) {
+            return response;
+        });
+    };
 
     function submitPTORequestForm(ptoRequestForm) {
-        var timestamp = new Date().toString();
-        console.log("timestamp: ", timestamp);
-        console.log("requestedPTODate: ", ptoRequestForm.requestedPTODate);
-        console.log("ptoType: ", ptoRequestForm.ptoType);
-        console.log("notes: ", ptoRequestForm.notes);
-    }
+        ptoRequestFormFactory.submitPTORequestForm(ptoRequestForm).then(function (response) {
+            console.log("ptoRequestFormController.submitPTORequestForm response: ", response);
+            $location.url('/home');
+        });
+    };
 
 }]);

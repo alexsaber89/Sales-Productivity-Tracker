@@ -13,9 +13,10 @@
             data: { grant_type: "password", username: $scope.username, password: $scope.password }
         })
             .then(function (result) {
-                console.log("result=", result);
+                sessionStorage.clear();
 
                 sessionStorage.setItem('token', result.data.access_token);
+
                 $http.defaults.headers.common['Authorization'] = `bearer ${result.data.access_token}`;
 
                 $location.path("/home");

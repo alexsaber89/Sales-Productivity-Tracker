@@ -13,7 +13,7 @@ namespace SalesProductivityTracker.App.Models
         public int Id { get; set; }
 
         [Required]
-        public Employee EmployeeId { get; set; }
+        public Employee Employee { get; set; }
 
         [Required]
         public DateTime TimeStamp { get; set; }
