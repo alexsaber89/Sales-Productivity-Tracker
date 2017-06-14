@@ -1,10 +1,10 @@
 ﻿<div class="employee-home-container">
 
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h2 class="text-align-center">Employee Portal</h2>
         </div>
-    </div>
+    </div>-->
 
     <ul class="nav nav-tabs">
         <li role="presentation" ng-click="showProductivityLog()" class="pointer"><a>Submitted Productivity</a></li>
@@ -21,15 +21,6 @@
         </div>-->
     </div>
 
-    <div ng-show="ptoLog">
-        <h2 class="text-align-center">Submitted PTO</h2>
-        <div class="panel panel-info" ng-repeat="ptoRequestForm in ptoRequestForms">
-            <div class="panel-body">
-                {{ptoRequestForm.PTOType}}
-                {{ptoRequestForm.RequestedPTODate}}
-            </div>
-            <div class="panel-footer">{{ptoRequestForm.Notes}}</div>
-        </div>
-    </div>
+    <pto-log data="ptoRequestForms" ng-show="ptoLog"></pto-log>
 
 </div>

@@ -7,6 +7,7 @@
     }
     return service;
 
+    //TODO:  Model logic after getPTOFormsByEmployeeId()
     function submitPTORequestForm(ptoRequestForm) {
         $http.post("/api/pto-forms", ptoRequestForm)
             .then(function (result) {
@@ -22,7 +23,6 @@
             });
     }
 
-    //$http.get("api/pto-forms-by-employeeID")
     function getPTOFormsByEmployeeId() {
         return $q((resolve, reject) => {
             $http.get("api/pto-forms-by-employeeID")

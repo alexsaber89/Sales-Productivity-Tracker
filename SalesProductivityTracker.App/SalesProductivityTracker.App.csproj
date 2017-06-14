@@ -299,12 +299,14 @@
     <Content Include="app\controllers\employeeHomeController.js" />
     <Content Include="app\controllers\ptoRequestFormController.js" />
     <Content Include="app\controllers\registerController.js" />
+    <Content Include="app\directives\ptoLog.js" />
     <Content Include="app\partials\EmployeeHome-ProductivityLog.html" />
     <Content Include="app\partials\Login.html" />
     <Content Include="app\partials\ProductivityForm.html" />
     <Content Include="app\partials\PTORequestForm.html" />
     <Content Include="app\partials\Register.html" />
     <Content Include="app\factories\ptoRequestFormFactory.js" />
+    <Content Include="app\templates\ptoLog.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

@@ -18,8 +18,6 @@
             data: { Email: $scope.username, Password: $scope.password, ConfirmPassword: $scope.confirmPassword }
         })
             .then(function (result) {
-                console.log("result=", result);
-
                 sessionStorage.clear();
 
                 sessionStorage.setItem('token', result.data.access_token);
