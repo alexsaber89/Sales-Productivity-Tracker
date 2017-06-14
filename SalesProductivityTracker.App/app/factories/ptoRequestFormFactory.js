@@ -1,31 +1,44 @@
 ﻿app.factory("ptoRequestFormFactory", ["$q", "$http", function ($q, $http) {
 
     var service = {
+        getCurrentEmployeeId: getCurrentEmployeeId,
         submitPTORequestForm: submitPTORequestForm,
         getAllPTOForms: getAllPTOForms,
         getPTOFormsByEmployeeId: getPTOFormsByEmployeeId
     }
     return service;
 
-    //TODO:  Model logic after getPTOFormsByEmployeeId()
+    function getCurrentEmployeeId() {
+        return $q((resolve, reject) => {
+            $http.get("/api/current-employee-id")
+             .then((response) => {
+                 resolve(response.data);
+             });
+        });
+    };
+
     function submitPTORequestForm(ptoRequestForm) {
-        $http.post("/api/pto-forms", ptoRequestForm)
-            .then(function (result) {
-                console.log("pto form submitted", result);
-            });
+        return $q((resolve, reject) => {
+            $http.post("/api/pto-forms", ptoRequestForm)
+             .then((response) => {
+                 resolve(response);
+                 console.log("ptoRequestFormFactory.submitPTORequestForm response: ", response);
+             });
+        });
     }
 
-    //TODO:  Move to manager pto service
+    //TODO:  Move to manager pto factory
+    //$q refactor
     function getAllPTOForms() {
         $http.get("/api/pto-forms")
             .then(function (result) {
                 console.log("all pto forms", result);
             });
-    }
+    };
 
-    function getPTOFormsByEmployeeId() {
+    function getPTOFormsByEmployeeId(currentEmployeeId) {
         return $q((resolve, reject) => {
-            $http.get("api/pto-forms-by-employeeID")
+            $http.get(`api/pto-forms-by-employeeID/${currentEmployeeId}`)
              .then((response) => {
                  resolve(response);
              });
@@ -33,6 +46,7 @@
     };
 
     //TODO: add existing PTOFormID from ng-model
+    //$q refactor
     //function getPTOFormByPTOFormId() {
     //    $http.get(`api/pto-form`)
     //        .then(function(result) {
@@ -41,6 +55,7 @@
     //}
 
     //TODO: add existing PTOFormID from ng-model
+    //$q refactor
     //function deletePTOFormByPTOFormId() {
     //    $http.get(`api/pto-form`)
     //        .then(function (result) {

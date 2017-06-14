@@ -19,15 +19,23 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             _context = context;
         }
 
+        public int GetCurrentEmployeeId(string aspNetUserId)
+        {
+            var employee = _context.Employees.FirstOrDefault(e => e.RootUserId.Id == aspNetUserId);
+
+            int employeeId = employee.Id;
+
+            return employeeId;
+        }
+
         public IEnumerable<PTORequestForm> GetAllPTOForms()
         {
             return _context.PTORequestForms;
         }
 
-        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
+        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
         {
-            var employee = _context.Employees.FirstOrDefault(e => e.RootUserId.Id == aspNetUserId);
-            return _context.PTORequestForms.Where(f => f.Employee.Id == employee.Id);
+            return _context.PTORequestForms.Where(f => f.Employee.Id == employeeId);
         }
 
         //TODO:  Implement logic to get PTO by ID

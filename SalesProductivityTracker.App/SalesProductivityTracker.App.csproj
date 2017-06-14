@@ -300,7 +300,7 @@
     <Content Include="app\controllers\ptoRequestFormController.js" />
     <Content Include="app\controllers\registerController.js" />
     <Content Include="app\directives\ptoLog.js" />
-    <Content Include="app\partials\EmployeeHome-ProductivityLog.html" />
+    <Content Include="app\partials\EmployeeHome.html" />
     <Content Include="app\partials\Login.html" />
     <Content Include="app\partials\ProductivityForm.html" />
     <Content Include="app\partials\PTORequestForm.html" />

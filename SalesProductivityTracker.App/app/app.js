@@ -10,7 +10,7 @@ app.config([
             })
             .when("/home",
             {
-                templateUrl: "app/partials/EmployeeHome-ProductivityLog.html",
+                templateUrl: "app/partials/EmployeeHome.html",
                 controller: "employeeHomeController"
             })
             .when("/register",

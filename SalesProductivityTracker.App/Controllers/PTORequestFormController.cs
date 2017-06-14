@@ -21,6 +21,15 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
+        [Route("api/current-employee-id")]
+        public int GetCurrentEmployeeId()
+        {
+            string _currentAspNetUserId = User.Identity.GetUserId();
+
+            return _repo.GetCurrentEmployeeId(_currentAspNetUserId);
+        }
+
+        [HttpGet]
         [Route("api/pto-forms")]
         public List<PTORequestForm> Get()
         {
@@ -29,13 +38,10 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employeeID")]
-        public List<PTORequestForm> GetPTOFormsByEmployeeId()
+        [Route("api/pto-forms-by-employeeID/{employeeId}")]
+        public List<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
         {
-            string aspNetUserId = User.Identity.GetUserId();
-            Debug.WriteLine("aspNetUserId: " + aspNetUserId);
-
-            var forms = _repo.GetPTOFormsByEmployeeId(aspNetUserId).ToList();
+            var forms = _repo.GetPTOFormsByEmployeeId(employeeId).ToList();
             return forms;
         }
 
