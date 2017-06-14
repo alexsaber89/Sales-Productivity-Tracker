@@ -20,7 +20,8 @@
 .pto-request-form-container,
 .employee-home-container,
 .productivity-log-container,
-.pto-log-container {
+.pto-log-container,
+.pto-log {
     margin: 2%;
 }
 
