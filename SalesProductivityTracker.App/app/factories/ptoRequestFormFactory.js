@@ -18,6 +18,7 @@
     };
 
     function submitPTORequestForm(ptoRequestForm) {
+        console.log("ptoRequestForm from Factory", ptoRequestForm);
         return $q((resolve, reject) => {
             $http.post("/api/pto-forms", ptoRequestForm)
              .then((response) => {
@@ -25,7 +26,7 @@
                  console.log("ptoRequestFormFactory.submitPTORequestForm response: ", response);
              });
         });
-    }
+    };
 
     //TODO:  Move to manager pto factory
     //$q refactor
@@ -52,7 +53,7 @@
     //        .then(function(result) {
     //            console.log("PTO By PTO ID", result);
     //        });
-    //}
+    //};
 
     //TODO: add existing PTOFormID from ng-model
     //$q refactor
@@ -61,6 +62,6 @@
     //        .then(function (result) {
     //            console.log("PTO By PTO ID", result);
     //        });
-    //}
+    //};
 
 }]);

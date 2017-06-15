@@ -9,23 +9,26 @@
             controller: function ($scope, ptoRequestFormFactory) {
 
                 $scope.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
+                $scope.currentEmployeeId = null;
 
-
-                getPTOFormsByEmployeeId();
+                getCurrentEmployeeId();
 
                 function getCurrentEmployeeId() {
                     ptoRequestFormFactory.getCurrentEmployeeId().then(function (response) {
+                        $scope.currentEmployeeId = response;
                         return response;
                     });
                 };
 
                 function getPTOFormsByEmployeeId() {
-                    ptoRequestFormFactory.getPTOFormsByEmployeeId(currentEmployeeId).then(function (forms) {
-                        console.log("forms: ", forms.data);
-                        $scope.ptoRequestForms = forms.data;
+                    ptoRequestFormFactory.getCurrentEmployeeId().then(function (getCurrentEmployeeIdResponse) {
+                        $scope.currentEmployeeId = getCurrentEmployeeIdResponse;
+                        ptoRequestFormFactory.getPTOFormsByEmployeeId($scope.currentEmployeeId).then(function (forms) {
+                            console.log("ptoRequestFormController.submitPTORequestForm response: ", response);
+                            $location.url('/home');
+                        });
                     });
                 };
-
             }
         };
     });

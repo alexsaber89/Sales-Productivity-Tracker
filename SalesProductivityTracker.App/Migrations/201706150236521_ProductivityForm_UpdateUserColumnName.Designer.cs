@@ -7,13 +7,13 @@ namespace SalesProductivityTracker.App.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class adjustPTOFormEmployeeField : IMigrationMetadata
+    public sealed partial class ProductivityForm_UpdateUserColumnName : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adjustPTOFormEmployeeField));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ProductivityForm_UpdateUserColumnName));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706101859143_adjustPTOFormEmployeeField"; }
+            get { return "201706150236521_ProductivityForm_UpdateUserColumnName"; }
         }
         
         string IMigrationMetadata.Source

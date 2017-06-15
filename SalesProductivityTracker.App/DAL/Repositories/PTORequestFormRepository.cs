@@ -19,23 +19,14 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             _context = context;
         }
 
-        public int GetCurrentEmployeeId(string aspNetUserId)
-        {
-            var employee = _context.Employees.FirstOrDefault(e => e.RootUserId.Id == aspNetUserId);
-
-            int employeeId = employee.Id;
-
-            return employeeId;
-        }
-
         public IEnumerable<PTORequestForm> GetAllPTOForms()
         {
             return _context.PTORequestForms;
         }
 
-        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
+        public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
         {
-            return _context.PTORequestForms.Where(f => f.Employee.Id == employeeId);
+            return _context.PTORequestForms.Where(f => f.User.Id == aspNetUserId);
         }
 
         //TODO:  Implement logic to get PTO by ID
@@ -63,7 +54,7 @@ namespace SalesProductivityTracker.App.DAL.Repositories
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
-                        Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        Debug.WriteLine("Property: {0} || Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
                     }
                 }
             }
