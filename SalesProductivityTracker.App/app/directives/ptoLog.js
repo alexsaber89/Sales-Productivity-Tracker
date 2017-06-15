@@ -6,12 +6,11 @@
                 ptoRequestForms: "<"
             },
             templateUrl: "app/templates/ptoLog.html",
-            controller: function ($scope, ptoRequestFormFactory) {
+            controller: function ($scope, $location, ptoRequestFormFactory) {
 
                 $scope.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
-                $scope.currentEmployeeId = null;
 
-                getCurrentEmployeeId();
+                getPTOFormsByEmployeeId();
 
                 function getCurrentEmployeeId() {
                     ptoRequestFormFactory.getCurrentEmployeeId().then(function (response) {
@@ -24,7 +23,8 @@
                     ptoRequestFormFactory.getCurrentEmployeeId().then(function (getCurrentEmployeeIdResponse) {
                         $scope.currentEmployeeId = getCurrentEmployeeIdResponse;
                         ptoRequestFormFactory.getPTOFormsByEmployeeId($scope.currentEmployeeId).then(function (forms) {
-                            console.log("ptoRequestFormController.submitPTORequestForm response: ", response);
+                            console.log("ptoRequestFormController.submitPTORequestForm forms: ", forms);
+                            $scope.ptoRequestForms = forms;
                             $location.url('/home');
                         });
                     });

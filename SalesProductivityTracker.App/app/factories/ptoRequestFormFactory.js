@@ -41,7 +41,7 @@
         return $q((resolve, reject) => {
             $http.get(`api/pto-forms-by-employeeID/${currentEmployeeId}`)
              .then((response) => {
-                 resolve(response);
+                 resolve(response.data);
              });
         });
     };

@@ -34,7 +34,7 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employeeID/{employeeId}")]
+        [Route("api/pto-forms-by-employeeID/{aspNetUserId}")]
         public List<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
         {
             var forms = _repo.GetPTOFormsByEmployeeId(aspNetUserId).ToList();
