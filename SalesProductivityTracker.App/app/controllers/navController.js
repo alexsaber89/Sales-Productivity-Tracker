@@ -4,6 +4,10 @@
         $location.url('/');
     };
 
+    $scope.showHome = () => {
+        $location.url('/home');
+    };
+
     $scope.showProductivityForm = () => {
         $location.url('productivityform');
     };
