@@ -18,27 +18,27 @@ namespace SalesProductivityTracker.App.Controllers
             _repo = repo;
         }
 
-        [HttpGet]
-        [Route("api/current-employee-id")]
-        public string GetCurrentEmployeeId()
+        private ApplicationUser GetCurrentApplicationUser()
         {
-            return User.Identity.GetUserId();
+            string _currentEmployeeId = User.Identity.GetUserId();
+
+            return _repo.GetCurrentUserById(_currentEmployeeId);
         }
 
         [HttpGet]
         [Route("api/pto-forms")]
         public List<PTORequestForm> Get()
         {
-            var forms = _repo.GetAllPTOForms().ToList();
-            return forms;
+            return _repo.GetAllPTOForms().ToList();
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employeeID/{aspNetUserId}")]
-        public List<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
+        [Route("api/pto-forms-by-employeeID")]
+        public List<PTORequestForm> GetPTOFormsByEmployeeId()
         {
-            var forms = _repo.GetPTOFormsByEmployeeId(aspNetUserId).ToList();
-            return forms;
+            ApplicationUser _currentUserId = GetCurrentApplicationUser();
+
+            return _repo.GetPTOFormsByEmployeeId(_currentUserId.Id).ToList();
         }
 
         [HttpGet]
@@ -59,17 +59,13 @@ namespace SalesProductivityTracker.App.Controllers
         [Route("api/pto-forms")]
         public void SubmitPTOForm(PTORequestForm ptoForm)
         {
-            string _currentEmployeeId = User.Identity.GetUserId();
-
-            ApplicationUser _currentUser = _repo.GetCurrentUserById(_currentEmployeeId);
-
             PTORequestForm _ptoForm = new PTORequestForm
             {
                 Id = ptoForm.Id,
                 Notes = ptoForm.Notes,
                 TimeStamp = DateTime.Now,
                 RequestedPTODate = ptoForm.RequestedPTODate,
-                User = _currentUser,
+                User = GetCurrentApplicationUser(),
                 PTOType = ptoForm.PTOType
             };
 
