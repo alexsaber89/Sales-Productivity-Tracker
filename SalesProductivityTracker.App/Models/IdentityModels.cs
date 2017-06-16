@@ -10,7 +10,7 @@ namespace SalesProductivityTracker.App.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-
+        public bool IsManager { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
@@ -23,8 +23,6 @@ namespace SalesProductivityTracker.App.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public virtual DbSet<Manager> Managers { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<PTORequestForm> PTORequestForms { get; set; }
         public virtual DbSet<ProductivityForm> ProductivityForms { get; set; }
 

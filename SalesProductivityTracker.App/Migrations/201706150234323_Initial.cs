@@ -3,40 +3,33 @@ namespace SalesProductivityTracker.App.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Employees",
+                "dbo.ProductivityForms",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ManagerId_Id = c.Int(),
-                        RootUserId_Id = c.String(maxLength: 128),
+                        TimeStamp = c.DateTime(nullable: false),
+                        ProductivityDate = c.DateTime(nullable: false),
+                        BookedDailyRevenue = c.Single(nullable: false),
+                        DailyCasesCompleted = c.Int(nullable: false),
+                        DailyCallCount = c.Int(nullable: false),
+                        DailyEmailCount = c.Int(nullable: false),
+                        UserId_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Managers", t => t.ManagerId_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.RootUserId_Id)
-                .Index(t => t.ManagerId_Id)
-                .Index(t => t.RootUserId_Id);
-            
-            CreateTable(
-                "dbo.Managers",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        RootUserId_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.RootUserId_Id)
-                .Index(t => t.RootUserId_Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId_Id, cascadeDelete: true)
+                .Index(t => t.UserId_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        IsManager = c.Boolean(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -91,23 +84,6 @@ namespace SalesProductivityTracker.App.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.ProductivityForms",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TimeStamp = c.DateTime(nullable: false),
-                        ProductivityDate = c.DateTime(nullable: false),
-                        BookedDailyRevenue = c.Single(nullable: false),
-                        DailyCasesCompleted = c.Int(nullable: false),
-                        DailyCallCount = c.Int(nullable: false),
-                        DailyEmailCount = c.Int(nullable: false),
-                        EmployeeId_Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id, cascadeDelete: true)
-                .Index(t => t.EmployeeId_Id);
-            
-            CreateTable(
                 "dbo.PTORequestForms",
                 c => new
                     {
@@ -117,11 +93,11 @@ namespace SalesProductivityTracker.App.Migrations
                         PTOType = c.String(nullable: false),
                         Notes = c.String(nullable: false),
                         IsApproved = c.Boolean(nullable: false),
-                        EmployeeId_Id = c.Int(nullable: false),
+                        User_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId_Id, cascadeDelete: true)
-                .Index(t => t.EmployeeId_Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id, cascadeDelete: true)
+                .Index(t => t.User_Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -138,34 +114,26 @@ namespace SalesProductivityTracker.App.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.PTORequestForms", "EmployeeId_Id", "dbo.Employees");
-            DropForeignKey("dbo.ProductivityForms", "EmployeeId_Id", "dbo.Employees");
-            DropForeignKey("dbo.Employees", "RootUserId_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Employees", "ManagerId_Id", "dbo.Managers");
-            DropForeignKey("dbo.Managers", "RootUserId_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.PTORequestForms", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.ProductivityForms", "UserId_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.PTORequestForms", new[] { "EmployeeId_Id" });
-            DropIndex("dbo.ProductivityForms", new[] { "EmployeeId_Id" });
+            DropIndex("dbo.PTORequestForms", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Managers", new[] { "RootUserId_Id" });
-            DropIndex("dbo.Employees", new[] { "RootUserId_Id" });
-            DropIndex("dbo.Employees", new[] { "ManagerId_Id" });
+            DropIndex("dbo.ProductivityForms", new[] { "UserId_Id" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.PTORequestForms");
-            DropTable("dbo.ProductivityForms");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Managers");
-            DropTable("dbo.Employees");
+            DropTable("dbo.ProductivityForms");
         }
     }
 }

@@ -6,26 +6,29 @@
                 ptoRequestForms: "<"
             },
             templateUrl: "app/templates/ptoLog.html",
-            controller: function ($scope, ptoRequestFormFactory) {
+            controller: function ($scope, $location, ptoRequestFormFactory) {
 
                 $scope.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
-
 
                 getPTOFormsByEmployeeId();
 
                 function getCurrentEmployeeId() {
                     ptoRequestFormFactory.getCurrentEmployeeId().then(function (response) {
+                        $scope.currentEmployeeId = response;
                         return response;
                     });
                 };
 
                 function getPTOFormsByEmployeeId() {
-                    ptoRequestFormFactory.getPTOFormsByEmployeeId(currentEmployeeId).then(function (forms) {
-                        console.log("forms: ", forms.data);
-                        $scope.ptoRequestForms = forms.data;
+                    ptoRequestFormFactory.getCurrentEmployeeId().then(function (getCurrentEmployeeIdResponse) {
+                        $scope.currentEmployeeId = getCurrentEmployeeIdResponse;
+                        ptoRequestFormFactory.getPTOFormsByEmployeeId($scope.currentEmployeeId).then(function (forms) {
+                            console.log("ptoRequestFormController.submitPTORequestForm forms: ", forms);
+                            $scope.ptoRequestForms = forms;
+                            $location.url('/home');
+                        });
                     });
                 };
-
             }
         };
     });

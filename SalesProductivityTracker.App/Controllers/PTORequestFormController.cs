@@ -3,9 +3,7 @@ using SalesProductivityTracker.App.DAL.IRepositories;
 using SalesProductivityTracker.App.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace SalesProductivityTracker.App.Controllers
@@ -22,11 +20,9 @@ namespace SalesProductivityTracker.App.Controllers
 
         [HttpGet]
         [Route("api/current-employee-id")]
-        public int GetCurrentEmployeeId()
+        public string GetCurrentEmployeeId()
         {
-            string _currentAspNetUserId = User.Identity.GetUserId();
-
-            return _repo.GetCurrentEmployeeId(_currentAspNetUserId);
+            return User.Identity.GetUserId();
         }
 
         [HttpGet]
@@ -38,10 +34,10 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-forms-by-employeeID/{employeeId}")]
-        public List<PTORequestForm> GetPTOFormsByEmployeeId(int employeeId)
+        [Route("api/pto-forms-by-employeeID/{aspNetUserId}")]
+        public List<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
         {
-            var forms = _repo.GetPTOFormsByEmployeeId(employeeId).ToList();
+            var forms = _repo.GetPTOFormsByEmployeeId(aspNetUserId).ToList();
             return forms;
         }
 
@@ -63,7 +59,21 @@ namespace SalesProductivityTracker.App.Controllers
         [Route("api/pto-forms")]
         public void SubmitPTOForm(PTORequestForm ptoForm)
         {
-            _repo.SubmitPTOForm(ptoForm);
+            string _currentEmployeeId = User.Identity.GetUserId();
+
+            ApplicationUser _currentUser = _repo.GetCurrentUserById(_currentEmployeeId);
+
+            PTORequestForm _ptoForm = new PTORequestForm
+            {
+                Id = ptoForm.Id,
+                Notes = ptoForm.Notes,
+                TimeStamp = DateTime.Now,
+                RequestedPTODate = ptoForm.RequestedPTODate,
+                User = _currentUser,
+                PTOType = ptoForm.PTOType
+            };
+
+            _repo.SubmitPTOForm(_ptoForm);
         }
     }
 }

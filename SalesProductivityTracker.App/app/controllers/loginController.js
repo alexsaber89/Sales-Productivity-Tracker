@@ -13,6 +13,7 @@
             data: { grant_type: "password", username: $scope.username, password: $scope.password }
         })
             .then(function (result) {
+                console.log("login result: ", result);
                 sessionStorage.clear();
 
                 sessionStorage.setItem('token', result.data.access_token);
