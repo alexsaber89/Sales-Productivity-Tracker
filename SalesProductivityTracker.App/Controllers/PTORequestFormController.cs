@@ -49,10 +49,10 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpDelete]
-        [Route("api/pto-form")]
-        public PTORequestForm DeletePTOFormByPTOFormId()
+        [Route("api/pto-form/{formId}")]
+        public void DeletePTOFormByPTOFormId(int formId)
         {
-            throw new NotImplementedException();
+            _repo.DeletePTOFormByPTOFormId(formId);
         }
 
         [HttpPost]

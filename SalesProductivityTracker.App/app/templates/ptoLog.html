@@ -11,5 +11,6 @@
     <hr class="margin-0"/>
     <div class="panel-body">
         <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+        <button ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
     </div>
 </div>
