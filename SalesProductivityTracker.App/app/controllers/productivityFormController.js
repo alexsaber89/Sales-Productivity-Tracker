@@ -1,15 +1,11 @@
-﻿app.controller("productivityFormController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
+﻿app.controller("productivityFormController", ["$scope", "$location", "productivityFormFactory", function ($scope, $location, productivityFormFactory) {
 
-    $scope.submitProductivityReport = submitProductivityReport;
+    $scope.submitProductivityForm = submitProductivityForm;
 
-    function submitProductivityReport(productivityForm) {
-        var timestamp = new Date().toString();
-        console.log("timestamp: ", timestamp);
-        console.log("productivityDate: ", productivityForm.productivityDate);
-        console.log("bookedDailyRevenue: ", productivityForm.bookedDailyRevenue);
-        console.log("dailyCasesCompleted: ", productivityForm.dailyCasesCompleted);
-        console.log("dailyCallCount: ", productivityForm.dailyCallCount);
-        console.log("dailyEmailCount: ", productivityForm.dailyEmailCount);
-    }
+    function submitProductivityForm(productivityForm) {
+        productivityFormFactory.submitProductivityForm(productivityForm).then(function (submitProductivityFormResponse) {
+            $location.url('/home');
+        });
+    };
 
 }]);
