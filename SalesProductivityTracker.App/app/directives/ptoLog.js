@@ -21,7 +21,6 @@
                 };
 
                 function deletePTOFormByPTOFormId(formId) {
-                    console.log("form to delete: ", formId);
                     ptoRequestFormFactory.deletePTOFormByPTOFormId(formId).then(function (response) {
                         getPTOFormsByEmployeeId();
                     });
