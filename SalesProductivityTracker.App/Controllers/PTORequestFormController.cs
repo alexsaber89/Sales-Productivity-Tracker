@@ -59,12 +59,17 @@ namespace SalesProductivityTracker.App.Controllers
         [Route("api/pto-forms")]
         public void SubmitPTOForm(PTORequestForm ptoForm)
         {
-            var _ptoForm = new PTORequestForm
+            string _currentEmployeeId = User.Identity.GetUserId();
+
+            ApplicationUser _currentUser = _repo.GetCurrentUserById(_currentEmployeeId);
+
+            PTORequestForm _ptoForm = new PTORequestForm
             {
                 Id = ptoForm.Id,
                 Notes = ptoForm.Notes,
+                TimeStamp = DateTime.Now,
                 RequestedPTODate = ptoForm.RequestedPTODate,
-                User = ptoForm.User,
+                User = _currentUser,
                 PTOType = ptoForm.PTOType
             };
 

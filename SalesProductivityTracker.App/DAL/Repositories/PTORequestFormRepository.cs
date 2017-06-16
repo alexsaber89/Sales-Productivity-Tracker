@@ -19,6 +19,11 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             _context = context;
         }
 
+        public ApplicationUser GetCurrentUserById(string aspNetUserId)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == aspNetUserId);
+        }
+
         public IEnumerable<PTORequestForm> GetAllPTOForms()
         {
             return _context.PTORequestForms;

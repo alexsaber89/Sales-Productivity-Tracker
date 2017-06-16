@@ -9,6 +9,7 @@ namespace SalesProductivityTracker.App.DAL.IRepositories
 {
     public interface IPTORequestFormRepository
     {
+        ApplicationUser GetCurrentUserById(string aspNetUserId);
         IEnumerable<PTORequestForm> GetAllPTOForms();
         IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId);
         PTORequestForm GetPTOFormByPTOFormId(int formId);
