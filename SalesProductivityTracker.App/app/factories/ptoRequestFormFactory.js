@@ -1,21 +1,21 @@
 ﻿app.factory("ptoRequestFormFactory", ["$q", "$http", function ($q, $http) {
 
     var service = {
-        getCurrentEmployeeId: getCurrentEmployeeId,
+        //getCurrentEmployeeId: getCurrentEmployeeId,
         submitPTORequestForm: submitPTORequestForm,
         getAllPTOForms: getAllPTOForms,
         getPTOFormsByEmployeeId: getPTOFormsByEmployeeId
     }
     return service;
 
-    function getCurrentEmployeeId() {
-        return $q((resolve, reject) => {
-            $http.get("/api/current-employee-id")
-             .then((response) => {
-                 resolve(response.data);
-             });
-        });
-    };
+    //function getCurrentEmployeeId() {
+    //    return $q((resolve, reject) => {
+    //        $http.get("/api/current-employee-id")
+    //         .then((response) => {
+    //             resolve(response.data);
+    //         });
+    //    });
+    //};
 
     function submitPTORequestForm(ptoRequestForm) {
         console.log("ptoRequestForm from Factory", ptoRequestForm);
@@ -37,9 +37,9 @@
             });
     };
 
-    function getPTOFormsByEmployeeId(currentEmployeeId) {
+    function getPTOFormsByEmployeeId() {
         return $q((resolve, reject) => {
-            $http.get(`api/pto-forms-by-employeeID/${currentEmployeeId}`)
+            $http.get("api/pto-forms-by-employeeID")
              .then((response) => {
                  resolve(response.data);
              });
