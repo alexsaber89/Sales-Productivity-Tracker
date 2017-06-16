@@ -43,7 +43,9 @@ namespace SalesProductivityTracker.App.DAL.Repositories
         //TODO:  Implement logic to delete PTO by ID
         public void DeletePTOFormByPTOFormId(int formId)
         {
-            throw new NotImplementedException();
+            PTORequestForm _formToDelete = _context.PTORequestForms.FirstOrDefault(f => f.Id == formId);
+            _context.PTORequestForms.Remove(_formToDelete);
+            _context.SaveChanges();
         }
 
         public void SubmitPTOForm(PTORequestForm ptoForm)

@@ -9,6 +9,7 @@
             controller: function ($scope, $location, ptoRequestFormFactory) {
 
                 $scope.getPTOFormsByEmployeeId = getPTOFormsByEmployeeId;
+                $scope.deletePTOFormByPTOFormId = deletePTOFormByPTOFormId;
 
                 getPTOFormsByEmployeeId();
 
@@ -18,6 +19,13 @@
                         $location.url('/home');
                     });
                 };
+
+                function deletePTOFormByPTOFormId(formId) {
+                    console.log("form to delete: ", formId);
+                    ptoRequestFormFactory.deletePTOFormByPTOFormId(formId).then(function (response) {
+                        getPTOFormsByEmployeeId();
+                    });
+                }
             }
         };
     });
