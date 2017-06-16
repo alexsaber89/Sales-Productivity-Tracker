@@ -11,14 +11,7 @@
         <li role="presentation" ng-click="showPTOLog()" class="submitted-pto-tab pointer"><a>Submitted PTO</a></li>
     </ul>
 
-    <div ng-show="productivityLog">
-        <!--<div class="panel panel-primary" ng-repeat="">
-            <div class="panel-body">
-                Panel content
-            </div>
-            <div class="panel-footer">Panel footer</div>
-        </div>-->
-    </div>
+    <productivity-log data="productivityForms" ng-show="productivityLog"></productivity-log>
 
     <pto-log data="ptoRequestForms" ng-show="ptoLog"></pto-log>
 
