@@ -12,16 +12,8 @@
 
                 getPTOFormsByEmployeeId();
 
-                //function getCurrentEmployeeId() {
-                //    ptoRequestFormFactory.getCurrentEmployeeId().then(function (response) {
-                //        $scope.currentEmployeeId = response;
-                //        return response;
-                //    });
-                //};
-
                 function getPTOFormsByEmployeeId() {
                     ptoRequestFormFactory.getPTOFormsByEmployeeId().then(function (forms) {
-                        console.log("ptoRequestFormController.submitPTORequestForm forms: ", forms);
                         $scope.ptoRequestForms = forms;
                         $location.url('/home');
                     });
