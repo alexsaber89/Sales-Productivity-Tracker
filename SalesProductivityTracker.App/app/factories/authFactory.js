@@ -1,4 +1,4 @@
-﻿app.factory("authFactory", ["$http", "$location", function ($http, $location) {
+﻿app.factory("authFactory", ["$http", "$location", "$rootScope", function ($http, $location, $rootScope) {
 
     var service = {
         login: login,
@@ -20,6 +20,8 @@
                 data: { grant_type: "password", username: _username, password: _password }
             })
              .then((response) => {
+                 sessionStorage.setItem('token', response.data.access_token);
+                 $rootScope.token = response.data.access_token;
                  $http.defaults.headers.common['Authorization'] = `bearer ${response.data.access_token}`;
                  $location.url('/home');
              });

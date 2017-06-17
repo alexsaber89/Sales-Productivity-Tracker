@@ -32,12 +32,24 @@ app.config([
     }
 ]);
 
-app.run(["$http", function ($http) {
+app.run(["$http", "$rootScope", "$location", function ($http, $rootScope, $location) {
 
-    var token = sessionStorage.getItem('token');
+    $rootScope.token = sessionStorage.getItem('token');
 
-    if (token)
-        $http.defaults.headers.common['Authorization'] = `bearer ${token}`;
+    if ($rootScope.token) {
+        $http.defaults.headers.common['Authorization'] = `bearer ${$rootScope.token}`;
+    }
 
-}
-]);
+    $rootScope.$on('$routeChangeStart', function (event, currRoute, prevRoute) {
+        console.log("currRoute: ", currRoute);
+        if (currRoute.originalPath === "/" || currRoute.originalPath === "/register") {
+            return;
+        }
+
+        if (!$rootScope.token) {
+            event.preventDefault();
+            $location.path("/");
+        }
+        
+    });
+}]);
