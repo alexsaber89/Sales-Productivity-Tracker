@@ -302,6 +302,7 @@
     <Content Include="app\controllers\registerController.js" />
     <Content Include="app\directives\productivityLog.js" />
     <Content Include="app\directives\ptoLog.js" />
+    <Content Include="app\factories\authFactory.js" />
     <Content Include="app\factories\productivityFormFactory.js" />
     <Content Include="app\partials\EmployeeHome.html" />
     <Content Include="app\partials\Login.html" />
