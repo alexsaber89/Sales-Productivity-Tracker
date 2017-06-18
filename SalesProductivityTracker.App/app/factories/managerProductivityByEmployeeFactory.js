@@ -24,6 +24,7 @@
             $http.get("api/manager-productivity-forms")
              .then((response) => {
                  resolve(response.data);
+                 console.log("forms: ", response.data);
              });
         });
     };
