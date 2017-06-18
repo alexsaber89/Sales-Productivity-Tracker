@@ -1,4 +1,4 @@
-﻿app.controller("navController", ["$scope", "$location", function ($scope, $location) {
+﻿app.controller("employeeNavController", ["$scope", "$location", function ($scope, $location) {
 
     $scope.showLogin = () => {
         $location.url('/');
