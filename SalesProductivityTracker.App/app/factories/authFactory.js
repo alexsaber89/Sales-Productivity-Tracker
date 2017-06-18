@@ -1,8 +1,9 @@
-﻿app.factory("authFactory", ["$http", "$location", "$rootScope", function ($http, $location, $rootScope) {
+﻿app.factory("authFactory", ["$http", "$q", "$location", "$rootScope", function ($http, $q, $location, $rootScope) {
 
     var service = {
         login: login,
-        register: register
+        register: register,
+        determineIfManager: determineIfManager
     }
     return service;
 
@@ -22,8 +23,17 @@
              .then((response) => {
                  sessionStorage.setItem('token', response.data.access_token);
                  $rootScope.token = response.data.access_token;
+                 $rootScope.isManager = response.data.isManager;
                  $http.defaults.headers.common['Authorization'] = `bearer ${response.data.access_token}`;
-                 $location.url('/home');
+
+                 determineIfManager().then(function (isManager) {
+                     $rootScope.isManager = isManager;
+                     if (isManager) {
+                         $location.url('/manager-home');
+                     } else {
+                         $location.url('/home');
+                     }
+                 });
              });
     };
 
@@ -43,6 +53,16 @@
                 .then(function (result) {
                     login(_username, _password);
                 });
+    };
+
+    function determineIfManager() {
+        console.log("determineIfManager()");
+        return $q((resolve, reject) => {
+            $http.get("api/is-manager")
+             .then((response) => {
+                 resolve(response.data);
+             });
+        });
     };
 
 }]);

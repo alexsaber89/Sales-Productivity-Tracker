@@ -256,12 +256,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductivityFormController.cs" />
     <Compile Include="Controllers\PTORequestFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DAL\IRepositories\IAuthRepository.cs" />
     <Compile Include="DAL\IRepositories\IProductivityFormRepository.cs" />
     <Compile Include="DAL\IRepositories\IPTORequestFormRepository.cs" />
+    <Compile Include="DAL\Repositories\AuthRepository.cs" />
     <Compile Include="DAL\Repositories\ProductivityFormRepository.cs" />
     <Compile Include="DAL\Repositories\PTORequestFormRepository.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
@@ -295,7 +298,9 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\loginController.js" />
-    <Content Include="app\controllers\navController.js" />
+    <Content Include="app\controllers\managerHomeController.js" />
+    <Content Include="app\controllers\employeeNavController.js" />
+    <Content Include="app\controllers\managerNavController.js" />
     <Content Include="app\controllers\productivityFormController.js" />
     <Content Include="app\controllers\employeeHomeController.js" />
     <Content Include="app\controllers\ptoRequestFormController.js" />
@@ -306,6 +311,9 @@
     <Content Include="app\factories\productivityFormFactory.js" />
     <Content Include="app\partials\EmployeeHome.html" />
     <Content Include="app\partials\Login.html" />
+    <Content Include="app\partials\ManagerHome.html" />
+    <Content Include="app\partials\EmployeeNavbar.html" />
+    <Content Include="app\partials\ManagerNavbar.html" />
     <Content Include="app\partials\ProductivityForm.html" />
     <Content Include="app\partials\PTORequestForm.html" />
     <Content Include="app\partials\Register.html" />
