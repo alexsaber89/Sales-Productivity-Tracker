@@ -57,7 +57,6 @@
     };
 
     function determineIfManager() {
-        console.log("determineIfManager()");
         return $q((resolve, reject) => {
             $http.get("api/is-manager")
              .then((response) => {
@@ -69,7 +68,6 @@
     function logout() {
         $rootScope.token = null;
         sessionStorage.clear();
-        console.log("logged out");
     };
 
 }]);
