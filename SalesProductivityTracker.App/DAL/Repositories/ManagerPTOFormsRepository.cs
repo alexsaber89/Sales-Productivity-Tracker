@@ -22,7 +22,7 @@ namespace SalesProductivityTracker.App.DAL.Repositories
 
         public IEnumerable<PTORequestForm> GetAllPTOForms()
         {
-            return _context.PTORequestForms;
+            return _context.PTORequestForms.Include(f => f.User).OrderBy(f => f.RequestedPTODate).ThenBy(n => n.User.UserName);
         }
 
         public PTORequestForm GetPTOFormByFormId(int formId)
