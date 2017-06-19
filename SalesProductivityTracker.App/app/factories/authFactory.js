@@ -2,6 +2,7 @@
 
     var service = {
         login: login,
+        logout: logout,
         register: register,
         determineIfManager: determineIfManager
     }
@@ -63,6 +64,12 @@
                  resolve(response.data);
              });
         });
+    };
+
+    function logout() {
+        $rootScope.token = null;
+        sessionStorage.clear();
+        console.log("logged out");
     };
 
 }]);
