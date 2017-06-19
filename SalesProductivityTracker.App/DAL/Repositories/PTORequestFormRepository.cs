@@ -24,11 +24,6 @@ namespace SalesProductivityTracker.App.DAL.Repositories
             return _context.Users.FirstOrDefault(u => u.Id == aspNetUserId);
         }
 
-        public IEnumerable<PTORequestForm> GetAllPTOForms()
-        {
-            return _context.PTORequestForms;
-        }
-
         public IEnumerable<PTORequestForm> GetPTOFormsByEmployeeId(string aspNetUserId)
         {
             return _context.PTORequestForms.Where(f => f.User.Id == aspNetUserId);

@@ -26,13 +26,6 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-forms")]
-        public List<PTORequestForm> Get()
-        {
-            return _repo.GetAllPTOForms().ToList();
-        }
-
-        [HttpGet]
         [Route("api/pto-forms-by-employeeID")]
         public List<PTORequestForm> GetPTOFormsByEmployeeId()
         {
@@ -42,7 +35,7 @@ namespace SalesProductivityTracker.App.Controllers
         }
 
         [HttpGet]
-        [Route("api/pto-form")]
+        [Route("api/pto-form/{formId}")]
         public PTORequestForm GetPTOFormByPTOFormId()
         {
             throw new NotImplementedException();
@@ -63,6 +56,7 @@ namespace SalesProductivityTracker.App.Controllers
             {
                 Id = ptoForm.Id,
                 Notes = ptoForm.Notes,
+                IsApproved = ptoForm.IsApproved,
                 TimeStamp = DateTime.Now,
                 RequestedPTODate = ptoForm.RequestedPTODate,
                 User = GetCurrentApplicationUser(),

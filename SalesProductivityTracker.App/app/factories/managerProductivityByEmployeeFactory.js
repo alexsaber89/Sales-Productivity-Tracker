@@ -1,7 +1,8 @@
-﻿app.factory("productivityFormFactory", ["$q", "$http", function ($q, $http) {
+﻿app.factory("managerProductivityByEmployeeFactory", ["$q", "$http", function ($q, $http) {
 
     var service = {
         submitProductivityForm: submitProductivityForm,
+        getAllProductivityForms: getAllProductivityForms,
         getProductivityFormsByEmployeeId: getProductivityFormsByEmployeeId
     }
     return service;
@@ -11,6 +12,19 @@
             $http.post("/api/productivity-forms", productivityForm)
              .then((response) => {
                  resolve(response);
+             });
+        });
+    };
+
+    //TODO:  Move to manager productivity factory
+    //$q refactor
+    //
+    function getAllProductivityForms() {
+        return $q((resolve, reject) => {
+            $http.get("api/manager-productivity-forms")
+             .then((response) => {
+                 resolve(response.data);
+                 console.log("forms: ", response.data);
              });
         });
     };

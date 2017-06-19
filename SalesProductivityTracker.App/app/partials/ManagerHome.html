@@ -8,15 +8,13 @@
         </div>
     </div>-->
 
-    <!--<ul class="nav nav-tabs">
-        <li role="presentation" ng-click="showProductivityLog()" class="submitted-productivity-tab pointer"><a>Submitted Productivity</a></li>
-        <li role="presentation" ng-click="showPTOLog()" class="submitted-pto-tab pointer"><a>Submitted PTO</a></li>
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-click="showEmployeeProductivity()" class="employee-productivity-tab pointer"><a>Employee Productivity</a></li>
+        <li role="presentation" ng-click="showEmployeePTO()" class="employee-pto-tab pointer"><a>Employee PTO</a></li>
     </ul>
 
-    <productivity-log data="productivityForms" ng-show="productivityLog"></productivity-log>
+    <manager-productivity-by-employee data="productivityForms" ng-show="employeeProductivity"></manager-productivity-by-employee>
 
-    <pto-log data="ptoRequestForms" ng-show="ptoLog"></pto-log>-->
-
-    <h2>Manager Home</h2>
+    <manager-pto-by-employee data="ptoRequestForms" ng-show="employeePTO"></manager-pto-by-employee>
 
 </div>
