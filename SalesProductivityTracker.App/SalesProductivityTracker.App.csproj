@@ -290,6 +290,10 @@
     <Compile Include="Migrations\201706150236521_ProductivityForm_UpdateUserColumnName.Designer.cs">
       <DependentUpon>201706150236521_ProductivityForm_UpdateUserColumnName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706190707449_Add_Name_To_AspNetUser.cs" />
+    <Compile Include="Migrations\201706190707449_Add_Name_To_AspNetUser.Designer.cs">
+      <DependentUpon>201706190707449_Add_Name_To_AspNetUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -413,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706150236521_ProductivityForm_UpdateUserColumnName.resx">
       <DependentUpon>201706150236521_ProductivityForm_UpdateUserColumnName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706190707449_Add_Name_To_AspNetUser.resx">
+      <DependentUpon>201706190707449_Add_Name_To_AspNetUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
