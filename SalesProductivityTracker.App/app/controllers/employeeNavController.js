@@ -1,6 +1,6 @@
 ﻿app.controller("employeeNavController", ["$scope", "$location", function ($scope, $location) {
 
-    $scope.showLogin = () => {
+    $scope.logout = () => {
         $location.url('/');
     };
 

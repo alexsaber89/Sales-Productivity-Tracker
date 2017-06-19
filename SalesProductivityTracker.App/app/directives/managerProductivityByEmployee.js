@@ -13,7 +13,6 @@
                 getAllProductivityForms();
 
                 function getAllProductivityForms() {
-                    //console.log("getAllProductivityForms (directive)");
                     managerProductivityByEmployeeFactory.getAllProductivityForms().then(function (forms) {
                         $scope.productivityForms = forms;
                         $location.url('/manager-home');

@@ -2,6 +2,7 @@
 
     var service = {
         login: login,
+        logout: logout,
         register: register,
         determineIfManager: determineIfManager
     }
@@ -56,13 +57,17 @@
     };
 
     function determineIfManager() {
-        console.log("determineIfManager()");
         return $q((resolve, reject) => {
             $http.get("api/is-manager")
              .then((response) => {
                  resolve(response.data);
              });
         });
+    };
+
+    function logout() {
+        $rootScope.token = null;
+        sessionStorage.clear();
     };
 
 }]);
