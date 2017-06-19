@@ -3,7 +3,9 @@
     $scope.register = register;
 
     function register() {
-        authFactory.register($scope.username, $scope.password, $scope.confirmPassword);
+        if ($scope.username && $scope.password && $scope.confirmPassword) {
+            authFactory.register($scope.username, $scope.password, $scope.confirmPassword);
+        }
     };
 
 }]);

@@ -1,4 +1,4 @@
-﻿var app = angular.module("SalesProductivityTracker", ["ngRoute", "app.directives.productivityLog", "app.directives.ptoLog", "app.directives.managerProductivityByEmployee", "app.directives.managerPtoByEmployee"]);
+﻿var app = angular.module("SalesProductivityTracker", ["ngRoute", "app.directives.employeeNavbar", "app.directives.managerNavbar", "app.directives.productivityLog", "app.directives.ptoLog", "app.directives.managerProductivityByEmployee", "app.directives.managerPtoByEmployee"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
