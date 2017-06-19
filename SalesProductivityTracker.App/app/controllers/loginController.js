@@ -6,7 +6,9 @@
     logout();
 
     function login() {
-        authFactory.login($scope.username, $scope.password);
+        if ($scope.username && $scope.password) {
+            authFactory.login($scope.username, $scope.password);
+        }
     };
 
     function logout() {
