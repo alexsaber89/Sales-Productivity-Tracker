@@ -1,20 +1,29 @@
 ﻿<div class="pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
-    <div class="panel panel-info" ng-if="ptoRequestForm.IsApproved">
+    <div class="panel panel-success" ng-if="ptoRequestForm.IsApproved">
         <div class="panel-heading">
             {{ptoRequestForm.PTOType}} - Approved
+        </div>
+        <div class="panel-body">
+            <p class="margin-0">Requested PTO Date: <span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span></p>
+            <p class="margin-0">Notes: <span>{{ptoRequestForm.Notes}}</span></p>
+        </div>
+        <hr class="margin-0"/>
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+            <button ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
         </div>
     </div>
     <div class="panel panel-danger" ng-if="!ptoRequestForm.IsApproved">
         <div class="panel-heading">
             {{ptoRequestForm.PTOType}} - Not Approved
         </div>
-    </div>
-    <div class="panel-body">
-        <p class="margin-0"><span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span> - <span>{{ptoRequestForm.Notes}}</span></p>
-    </div>
-    <hr class="margin-0"/>
-    <div class="panel-body">
-        <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-        <button ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
+        <div class="panel-body">
+            <p class="margin-0"><span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span> - <span>{{ptoRequestForm.Notes}}</span></p>
+        </div>
+        <hr class="margin-0"/>
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+            <button ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
+        </div>
     </div>
 </div>
