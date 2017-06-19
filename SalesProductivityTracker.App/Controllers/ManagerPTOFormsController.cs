@@ -21,7 +21,27 @@ namespace SalesProductivityTracker.App.Controllers
         [Route("api/manager-pto-forms")]
         public List<PTORequestForm> Get()
         {
-            return _repo.GetAllPTOForms().ToList();
+            var forms = _repo.GetAllPTOForms().ToList();
+
+            List<PTORequestForm> formattedForms = new List<PTORequestForm>();
+
+            foreach (var form in forms)
+            {
+                PTORequestForm formattedForm = new PTORequestForm();
+                ApplicationUser user = new ApplicationUser();
+                user.FirstName = form.User.FirstName;
+                user.LastName = form.User.LastName;
+                formattedForm.User = user;
+                formattedForm.Id = form.Id;
+                formattedForm.IsApproved = form.IsApproved;
+                formattedForm.Notes = form.Notes;
+                formattedForm.PTOType = form.PTOType;
+                formattedForm.RequestedPTODate = form.RequestedPTODate;
+                formattedForm.TimeStamp = form.TimeStamp;
+                formattedForms.Add(formattedForm);
+            }
+
+            return formattedForms;
         }
 
         [HttpPost]
