@@ -2,7 +2,6 @@
 
     var service = {
         submitPTORequestForm: submitPTORequestForm,
-        getAllPTOForms: getAllPTOForms,
         getPTOFormsByEmployeeId: getPTOFormsByEmployeeId,
         deletePTOFormByPTOFormId: deletePTOFormByPTOFormId
     }
@@ -15,15 +14,6 @@
                  resolve(response);
              });
         });
-    };
-
-    //TODO:  Move to manager pto factory
-    //$q refactor
-    function getAllPTOForms() {
-        $http.get("/api/pto-forms")
-            .then(function (result) {
-                console.log("all pto forms", result);
-            });
     };
 
     function getPTOFormsByEmployeeId() {

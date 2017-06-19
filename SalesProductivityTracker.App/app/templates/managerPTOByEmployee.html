@@ -1,0 +1,16 @@
+﻿<div class="panel panel-info pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
+    <div class="panel-heading" ng-if="ptoRequestForm.IsApproved">
+        {{ptoRequestForm.PTOType}} - Approved
+    </div>
+    <div class="panel-heading" ng-if="!ptoRequestForm.IsApproved">
+        {{ptoRequestForm.PTOType}} - Not Approved
+    </div>
+    <div class="panel-body">
+        <p class="margin-0"><span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span> - <span>{{ptoRequestForm.Notes}}</span></p>
+    </div>
+    <hr class="margin-0" />
+    <div class="panel-body">
+        <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+        <button ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
+    </div>
+</div>
