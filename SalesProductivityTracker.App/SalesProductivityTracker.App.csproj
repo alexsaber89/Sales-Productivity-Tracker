@@ -311,6 +311,7 @@
     <Content Include="app\controllers\employeeHomeController.js" />
     <Content Include="app\controllers\ptoRequestFormController.js" />
     <Content Include="app\controllers\registerController.js" />
+    <Content Include="app\directives\employeeNavbar.js" />
     <Content Include="app\directives\managerProductivityByEmployee.js" />
     <Content Include="app\directives\managerPTOByEmployee.js" />
     <Content Include="app\directives\productivityLog.js" />
@@ -328,6 +329,7 @@
     <Content Include="app\partials\PTORequestForm.html" />
     <Content Include="app\partials\Register.html" />
     <Content Include="app\factories\ptoRequestFormFactory.js" />
+    <Content Include="app\templates\employeeNavbar.html" />
     <Content Include="app\templates\managerProductivityByEmployee.html" />
     <Content Include="app\templates\managerPTOByEmployee.html" />
     <Content Include="app\templates\productivityLog.html" />
