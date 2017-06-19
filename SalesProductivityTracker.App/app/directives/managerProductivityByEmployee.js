@@ -15,6 +15,7 @@
                 function getAllProductivityForms() {
                     managerProductivityByEmployeeFactory.getAllProductivityForms().then(function (forms) {
                         $scope.productivityForms = forms;
+                        console.log("productivity forms: ", forms);
                         $location.url('/manager-home');
                     });
                 };

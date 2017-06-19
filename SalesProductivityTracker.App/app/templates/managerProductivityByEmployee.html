@@ -1,6 +1,6 @@
 ﻿<div class="panel panel-info productivity-log" ng-repeat="productivityForm in productivityForms">
     <div class="panel-heading">
-        <p class="margin-0"><span>{{productivityForm.User.UserName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue}}</span></p>
+        <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue}}</span></p>
     </div>
     <div class="panel-body">
         <p class="margin-0"><span ng-bind="productivityForm.DailyCasesCompleted"></span> case(s) completed</p>

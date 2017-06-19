@@ -38,7 +38,7 @@
              });
     };
 
-    function register(_username, _password, _confirmPassword) {
+    function register(_username, _password, _confirmPassword, _firstName, _lastName) {
             $http({
                 method: 'POST',
                 url: "/api/account/register",
@@ -49,7 +49,7 @@
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
                     return str.join("&");
                 },
-                data: { Email: _username, Password: _password, ConfirmPassword: _confirmPassword }
+                data: { Email: _username, Password: _password, ConfirmPassword: _confirmPassword, FirstName: _firstName, LastName: _lastName }
             })
                 .then(function (result) {
                     login(_username, _password);

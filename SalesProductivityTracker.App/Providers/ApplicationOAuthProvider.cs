@@ -91,6 +91,8 @@ namespace SalesProductivityTracker.App.Providers
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", user.UserName },
+                { "firstName", user.FirstName },
+                { "lastName", user.LastName },
                 { "isManager", user.IsManager.ToString() }
             };
             return new AuthenticationProperties(data);
