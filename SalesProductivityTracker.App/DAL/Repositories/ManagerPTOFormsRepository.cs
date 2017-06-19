@@ -7,6 +7,7 @@ using SalesProductivityTracker.App.Models;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 
 namespace SalesProductivityTracker.App.DAL.Repositories
 {
@@ -33,7 +34,7 @@ namespace SalesProductivityTracker.App.DAL.Repositories
         {
             try
             {
-                PTORequestForm _formToApprove = _context.PTORequestForms.FirstOrDefault(f => f.Id == formId);
+                PTORequestForm _formToApprove = _context.PTORequestForms.Where(f => f.Id == formId).Include(f => f.User).FirstOrDefault();
                 _formToApprove.IsApproved = true;
                 _context.SaveChanges();
             }
