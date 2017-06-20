@@ -70,9 +70,17 @@ Manager - Productivity
     font-weight: bold;
 }
 
-.manager-productivity-panel {
+.pto-panel {
     width: 50%;
     margin: 2% auto;
+}
+
+/*******************
+   Manager - PTO
+*******************/
+
+.pto-button {
+    margin-top: 10px;
 }
 
 /*******************
