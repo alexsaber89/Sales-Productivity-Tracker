@@ -1,14 +1,30 @@
-﻿<div class="panel panel-info productivity-log" ng-repeat="productivityForm in productivityForms">
-    <div class="panel-heading">
-        <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue}}</span></p>
+﻿<div class="manager-productivity-log" ng-repeat="productivityForm in productivityForms">
+    <div class="panel panel-success text-align-center" ng-if="productivityForm.BookedDailyRevenue >= 2000">
+        <div class="panel-heading">
+            <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
+        </div>
+        <div class="panel-body">
+            <p class="margin-0">Cases completed: <span ng-bind="productivityForm.DailyCasesCompleted"></span></p>
+            <p class="margin-0">Calls placed: <span ng-bind="productivityForm.DailyCallCount"></span></p>
+            <p class="margin-0">Emails sent: <span ng-bind="productivityForm.DailyEmailCount"></span></p>
+        </div>
+        <hr class="margin-0" />
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="productivityForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+        </div>
     </div>
-    <div class="panel-body">
-        <p class="margin-0"><span ng-bind="productivityForm.DailyCasesCompleted"></span> case(s) completed</p>
-        <p class="margin-0"><span ng-bind="productivityForm.DailyCallCount"></span> call(s) made</p>
-        <p class="margin-0"><span ng-bind="productivityForm.DailyEmailCount"></span> email(s) sent</p>
-    </div>
-    <hr class="margin-0" />
-    <div class="panel-body">
-        <p class="margin-0">Submitted <span ng-bind="productivityForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+    <div class="panel panel-danger text-align-center" ng-if="productivityForm.BookedDailyRevenue < 2000">
+        <div class="panel-heading">
+            <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
+        </div>
+        <div class="panel-body">
+            <p class="margin-0">Cases completed: <span ng-bind="productivityForm.DailyCasesCompleted"></span></p>
+            <p class="margin-0">Calls placed: <span ng-bind="productivityForm.DailyCallCount"></span></p>
+            <p class="margin-0">Emails sent: <span ng-bind="productivityForm.DailyEmailCount"></span></p>
+        </div>
+        <hr class="margin-0" />
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="productivityForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+        </div>
     </div>
 </div>

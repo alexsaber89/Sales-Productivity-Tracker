@@ -1,5 +1,5 @@
 ﻿<div class="pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
-    <div class="panel panel-success" ng-if="ptoRequestForm.IsApproved">
+    <div class="panel panel-success pto-panel text-align-center" ng-if="ptoRequestForm.IsApproved">
         <div class="panel-heading">
             <p class="margin-0"><span>{{ptoRequestForm.User.FirstName}} {{ptoRequestForm.User.LastName}}</span> - <span>{{ptoRequestForm.PTOType}} - Approved</span></p>
         </div>
@@ -9,10 +9,10 @@
         <hr class="margin-0" />
         <div class="panel-body">
             <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-            <button ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
+            <button type="button" class="btn btn-success pto-button" ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
         </div>
     </div>
-    <div class="panel panel-danger" ng-if="!ptoRequestForm.IsApproved">
+    <div class="panel panel-danger pto-panel text-align-center" ng-if="!ptoRequestForm.IsApproved">
         <div class="panel-heading">
             <p class="margin-0"><span>{{ptoRequestForm.User.FirstName}} {{ptoRequestForm.User.LastName}}</span> - <span>{{ptoRequestForm.PTOType}} - Not Approved</span></p>
         </div>
@@ -22,7 +22,7 @@
         <hr class="margin-0" />
         <div class="panel-body">
             <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-            <button ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
+            <button type="button" class="btn btn-success pto-button" ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
         </div>
     </div>
 </div>
