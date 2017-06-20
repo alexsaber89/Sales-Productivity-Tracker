@@ -27,8 +27,25 @@
 .productivity-log-container,
 .pto-log-container,
 .productivity-log,
+.manager-productivity-log,
 .pto-log {
     margin: 2%;
+}
+
+.tabs {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+p {
+    font-size: 1.1em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    font-size: 1.1em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 /*******************
@@ -44,6 +61,19 @@
 *******************/
 
 
+
+/*******************
+Manager - Productivity
+*******************/
+
+.panel-heading {
+    font-weight: bold;
+}
+
+.manager-productivity-panel {
+    width: 50%;
+    margin: 2% auto;
+}
 
 /*******************
     Generated
