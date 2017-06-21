@@ -31,9 +31,11 @@ namespace SalesProductivityTracker.App.Controllers
                 ApplicationUser user = new ApplicationUser();
                 user.FirstName = form.User.FirstName;
                 user.LastName = form.User.LastName;
+                user.Id = form.User.Id;
                 formattedForm.User = user;
                 formattedForm.BookedDailyRevenue = form.BookedDailyRevenue;
                 formattedForm.DailyCallCount = form.DailyCallCount;
+                formattedForm.Quarter = form.Quarter;
                 formattedForm.DailyCasesCompleted = form.DailyCasesCompleted;
                 formattedForm.DailyEmailCount = form.DailyEmailCount;
                 formattedForm.Id = form.Id;

@@ -1,5 +1,5 @@
-﻿<div class="manager-productivity-log" ng-repeat="productivityForm in productivityForms">
-    <div class="panel panel-success text-align-center" ng-if="productivityForm.BookedDailyRevenue >= 2000">
+﻿<!--<div class="manager-productivity-log" ng-repeat="productivityForm in productivityForms">
+    <div class="panel text-align-center" ng-class="{ 'panel-success':  productivityForm.BookedDailyRevenue >= 2000, 'panel-danger': productivityForm.BookedDailyRevenue < 2000 }">
         <div class="panel-heading">
             <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
         </div>
@@ -13,18 +13,51 @@
             <p class="margin-0">Submitted <span ng-bind="productivityForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
         </div>
     </div>
-    <div class="panel panel-danger text-align-center" ng-if="productivityForm.BookedDailyRevenue < 2000">
-        <div class="panel-heading">
-            <p class="margin-0"><span>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</span> - <span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
-        </div>
-        <div class="panel-body">
-            <p class="margin-0">Cases completed: <span ng-bind="productivityForm.DailyCasesCompleted"></span></p>
-            <p class="margin-0">Calls placed: <span ng-bind="productivityForm.DailyCallCount"></span></p>
-            <p class="margin-0">Emails sent: <span ng-bind="productivityForm.DailyEmailCount"></span></p>
-        </div>
-        <hr class="margin-0" />
-        <div class="panel-body">
-            <p class="margin-0">Submitted <span ng-bind="productivityForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-        </div>
+</div>-->
+
+<div class="manager-productivity-log">
+
+    <label for="quarterSelect">Select Desired Quarter</label>
+
+    <select ng-model="quarter"
+            ng-change="setProductivityQuarter(quarter)"
+            ng-options="quarter as quarter.quarter for quarter in quarters"></select>
+
+    <!--<select>
+        <option selected ng-model="Q1">Q1</option>
+        <option ng-model="Q2">Q2</option>
+        <option ng-model="Q3">Q3</option>
+        <option ng-model="Q4">Q4</option>
+    </select>-->
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading"></div>
+
+        <table class="table">
+            <tr>
+                <th>Employee Name</th>
+                <th>Calls</th>
+                <th>Emails</th>
+                <th>Cases</th>
+            </tr>
+
+            <!--<tr ng-repeat="productivityForm in productivityForms">
+                <td>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</td>
+                <td>{{productivityForm.DailyCallCount}}</td>
+                <td>{{productivityForm.DailyEmailCount}}</td>
+                <td>{{productivityForm.DailyCasesCompleted}}</td>
+            </tr>-->
+
+            <tr ng-repeat="productivityForm in quarterlyForms">
+                <td>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</td>
+                <td>{{test('DailyCallCount')}}</td>
+                <td>{{formatProductivityForms('DailyEmailCount')}}</td>
+                <td>{{formatProductivityForms('DailyCasesCompleted')}}</td>
+            </tr>
+
+        </table>
+
     </div>
+
 </div>
