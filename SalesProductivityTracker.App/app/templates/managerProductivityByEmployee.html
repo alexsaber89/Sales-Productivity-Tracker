@@ -23,11 +23,11 @@
             ng-change="setProductivityQuarter(quarter)"
             ng-options="quarter as quarter.quarter for quarter in quarters"></select>
 
-    <!--<select>
-        <option selected ng-model="Q1">Q1</option>
-        <option ng-model="Q2">Q2</option>
-        <option ng-model="Q3">Q3</option>
-        <option ng-model="Q4">Q4</option>
+    <!--<select class="quarterSelect">
+        <option value=1>Q1</option>
+        <option value=2>Q2</option>
+        <option value=3>Q3</option>
+        <option value=4>Q4</option>
     </select>-->
 
     <div class="panel panel-default">
@@ -49,12 +49,12 @@
                 <td>{{productivityForm.DailyCasesCompleted}}</td>
             </tr>-->
 
-            <tr ng-repeat="productivityForm in quarterlyForms">
+            <!--<tr ng-repeat="productivityForm in quarterlyForms">
                 <td>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</td>
                 <td>{{test('DailyCallCount')}}</td>
                 <td>{{formatProductivityForms('DailyEmailCount')}}</td>
                 <td>{{formatProductivityForms('DailyCasesCompleted')}}</td>
-            </tr>
+            </tr>-->
 
         </table>
 
