@@ -11,41 +11,41 @@
         </div>
         <hr />
 
-        <div class="productivity-form-field-container">
+        <div class="form-field-container">
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-field">
-                    <label for="productivityDate">Enter desired report date</label>
+                    <label for="productivityDate">Desired productivity date</label>
                     <!--<input required type="text" class="form-control margin-0-auto" id="productivityDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired report date" ng-model="productivityForm.productivityDate" />-->
-                    <input type="date" class="form-control margin-0-auto" name="productivityDate" ng-model="productivityForm.productivityDate" placeholder="Enter desired report date" min="2017-01-01" max="2017-12-31" required />
+                    <input type="text" class="form-control margin-0-auto" name="productivityDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" ng-model="productivityForm.productivityDate" placeholder="Productivity date" min="2017-01-01" max="2017-12-31" required />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-field">
-                    <label for="bookedRevenue">Enter daily bookings amount (USD)</label>
-                    <input required type="number" class="form-control margin-0-auto" name="bookedRevenue" id="bookedDailyRevenue" placeholder="Enter daily bookings amount (USD)" ng-model="productivityForm.bookedDailyRevenue" />
+                    <label for="bookedRevenue">Daily bookings amount (USD)</label>
+                    <input required type="number" class="form-control margin-0-auto" name="bookedRevenue" id="bookedDailyRevenue" placeholder="Daily bookings amount (USD)" ng-model="productivityForm.bookedDailyRevenue" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-field">
-                    <label for="completedCases">Enter number of completed cases</label>
-                    <input required type="number" class="form-control margin-0-auto" name="completedCases" id="dailyCasesCompleted" placeholder="Enter number of completed cases" ng-model="productivityForm.dailyCasesCompleted" />
+                    <label for="completedCases">Number of completed cases</label>
+                    <input required type="number" class="form-control margin-0-auto" name="completedCases" id="dailyCasesCompleted" placeholder="Number of completed cases" ng-model="productivityForm.dailyCasesCompleted" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-field">
-                    <label for="completedCalls">Enter number of calls</label>
-                    <input required type="number" class="form-control margin-0-auto" name="completedCalls" id="dailyCallCount" placeholder="Enter number of calls" ng-model="productivityForm.dailyCallCount" />
+                    <label for="completedCalls">Number of calls</label>
+                    <input required type="number" class="form-control margin-0-auto" name="completedCalls" id="dailyCallCount" placeholder="Number of calls" ng-model="productivityForm.dailyCallCount" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-field">
-                    <label for="sentEmails">Enter number of emails sent</label>
-                    <input required type="number" class="form-control margin-0-auto" name="sentEmails" id="dailyEmailCount" placeholder="Enter number of emails" ng-model="productivityForm.dailyEmailCount" />
+                    <label for="sentEmails">Number of emails sent</label>
+                    <input required type="number" class="form-control margin-0-auto" name="sentEmails" id="dailyEmailCount" placeholder="Number of emails sent" ng-model="productivityForm.dailyEmailCount" />
                 </div>
             </div>
 

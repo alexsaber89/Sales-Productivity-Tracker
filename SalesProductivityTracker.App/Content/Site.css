@@ -39,6 +39,8 @@
 p {
     font-size: 1.1em;
     font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+
 }
 
 a, label {
@@ -65,9 +67,17 @@ h2 {
 *******************/
 
 /*******************
-Employee - Productivity
+Employee - Productivity Log
 *******************/
-.productivity-form-field-container {
+
+.panel-heading-text {
+    font-size: 1.25em;
+}
+
+/*******************
+  Employee - Forms
+*******************/
+.form-field-container {
     width: 50%;
     margin: 0 auto;
     background-color: #d3d3d3;
@@ -79,10 +89,6 @@ Employee - Productivity
     text-align: center;
     margin-bottom: 15px;
 }
-
-/*******************
-  Employee - PTO
-*******************/
 
 /*******************
 Manager - Productivity
