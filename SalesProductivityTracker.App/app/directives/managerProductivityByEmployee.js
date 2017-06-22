@@ -38,8 +38,6 @@
 
                 function formatForms(forms, quarter) {
 
-                    let productivityTableObjects = [];
-
                     // Extract all userId's into an array
                     let userIdArray = forms.map(function (form) {
                         return form.User.Id;
@@ -49,6 +47,10 @@
                     let uniqueUserIdArray = userIdArray.filter(function (elem, index, self) {
                         return index == self.indexOf(elem);
                     });
+
+                    // For each userId, calculate that user's quarterly metrics
+                    // Place each employee's metrics object into an array
+                    let productivityTableObjects = [];
 
                     uniqueUserIdArray.forEach(function (userId) {
                         let employee = {};
@@ -63,20 +65,10 @@
                         productivityTableObjects.push(employee);
                     });
 
-                    productivityTableObjects.sort(function (a, b) {
-                        let nameA = a.LastName.toUpperCase();
-                        let nameB = b.LastName.toUpperCase();
-                        if (nameA < nameB) {
-                            return -1;
-                        }
-                        if (nameA > nameB) {
-                            return 1;
-                        }
+                    // Finally, sort metrics objects by employee last name
+                    let sortedProductivityTableObjects = sortProductivityObjectsByLastName(productivityTableObjects);
 
-                        return 0;
-                    });
-
-                    $scope.productivityTableObjects = productivityTableObjects;
+                    $scope.sortedProductivityTableObjects = sortedProductivityTableObjects;
                 };
 
                 const getMetricsForEmployeeByQuarter = function (forms, employeeId, metric, quarter) {
@@ -103,6 +95,24 @@
                     employeeNameObj.LastName = formObject.User.LastName;
 
                     return employeeNameObj;
+                };
+
+                const sortProductivityObjectsByLastName = function (productivityObjects) {
+
+                    productivityObjects.sort(function (a, b) {
+                        let nameA = a.LastName.toUpperCase();
+                        let nameB = b.LastName.toUpperCase();
+                        if (nameA < nameB) {
+                            return -1;
+                        }
+                        if (nameA > nameB) {
+                            return 1;
+                        }
+
+                        return 0;
+                    });
+
+                    return productivityObjects;
                 };
 
 

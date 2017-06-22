@@ -37,7 +37,7 @@
                 <th>Bookings</th>
             </tr>
 
-            <tr ng-repeat="quarterlyUserData in productivityTableObjects">
+            <tr ng-repeat="quarterlyUserData in sortedProductivityTableObjects">
                 <td>{{quarterlyUserData.FirstName}} {{quarterlyUserData.LastName}}</td>
                 <td>{{quarterlyUserData.QuarterlyCallCount}}</td>
                 <td>{{quarterlyUserData.QuarterlyEmailCount}}</td>
