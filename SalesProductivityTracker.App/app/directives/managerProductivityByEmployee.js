@@ -59,10 +59,11 @@
                         employee.QuarterlyEmailCount = getMetricsForEmployeeByQuarter(forms, userId, "DailyEmailCount", quarter);
                         employee.QuarterlyCasesCompleted = getMetricsForEmployeeByQuarter(forms, userId, "DailyCasesCompleted", quarter);
                         employee.BookedQuarterlyRevenue = getMetricsForEmployeeByQuarter(forms, userId, "BookedDailyRevenue", quarter);
+                        employee.Name = getUserNameById(forms, userId);
                         productivityTableObjects.push(employee);
                     });
 
-                    console.log("productivityTableObjects: ", productivityTableObjects);
+                    $scope.productivityTableObjects = productivityTableObjects;
 
                 };
 
@@ -78,6 +79,17 @@
 
                     return metricSum;
                 };
+
+                const getUserNameById = function (forms, employeeId) {
+
+                    const formObject = forms.find(function (report) {
+                        return report.User.Id === employeeId;
+                    });
+
+                    return formObject.User.FirstName + " " + formObject.User.LastName;
+                };
+
+
 
 
 

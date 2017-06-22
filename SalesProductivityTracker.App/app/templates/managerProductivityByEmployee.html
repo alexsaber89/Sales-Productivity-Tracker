@@ -23,13 +23,6 @@
             ng-change="setProductivityQuarter(quarter)"
             ng-options="quarter as quarter.quarter for quarter in quarters"></select>
 
-    <!--<select class="quarterSelect">
-        <option value=1>Q1</option>
-        <option value=2>Q2</option>
-        <option value=3>Q3</option>
-        <option value=4>Q4</option>
-    </select>-->
-
     <div class="panel panel-default">
 
         <div class="panel-heading"></div>
@@ -40,21 +33,16 @@
                 <th>Calls</th>
                 <th>Emails</th>
                 <th>Cases</th>
+                <th>Bookings</th>
             </tr>
 
-            <!--<tr ng-repeat="productivityForm in productivityForms">
-                <td>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</td>
-                <td>{{productivityForm.DailyCallCount}}</td>
-                <td>{{productivityForm.DailyEmailCount}}</td>
-                <td>{{productivityForm.DailyCasesCompleted}}</td>
-            </tr>-->
-
-            <!--<tr ng-repeat="productivityForm in quarterlyForms">
-                <td>{{productivityForm.User.FirstName}} {{productivityForm.User.LastName}}</td>
-                <td>{{test('DailyCallCount')}}</td>
-                <td>{{formatProductivityForms('DailyEmailCount')}}</td>
-                <td>{{formatProductivityForms('DailyCasesCompleted')}}</td>
-            </tr>-->
+            <tr ng-repeat="quarterlyUserData in productivityTableObjects">
+                <td>{{quarterlyUserData.Name}}</td>
+                <td>{{quarterlyUserData.QuarterlyCallCount}}</td>
+                <td>{{quarterlyUserData.QuarterlyEmailCount}}</td>
+                <td>{{quarterlyUserData.QuarterlyCasesCompleted}}</td>
+                <td>{{quarterlyUserData.BookedQuarterlyRevenue | currency}}</td>
+            </tr>
 
         </table>
 
