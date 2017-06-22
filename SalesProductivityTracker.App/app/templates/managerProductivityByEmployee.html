@@ -19,9 +19,10 @@
 
     <label for="quarterSelect">Select Desired Quarter</label>
 
-    <select ng-model="quarter"
-            ng-change="setProductivityQuarter(quarter)"
-            ng-options="quarter as quarter.quarter for quarter in quarters"></select>
+    <select ng-init="selectedQuarter = quarters[0]"
+            ng-model="selectedQuarter"
+            ng-change="setProductivityQuarter(selectedQuarter)"
+            ng-options="quarter.quarter for quarter in quarters"></select>
 
     <div class="panel panel-default">
 

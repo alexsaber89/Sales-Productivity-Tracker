@@ -21,8 +21,6 @@
                     quarter: 4
                 }];
 
-                $scope.quarter = $scope.quarters[0].quarter;
-
                 function setProductivityQuarter(quarterNum) {
                     $scope.quarter = quarterNum.quarter;
                     formatForms($scope.unformattedForms, $scope.quarter)
