@@ -1,7 +1,7 @@
 ﻿<div class="productivity-log" ng-repeat="productivityForm in productivityForms">
     <div class="panel short-panel text-align-center" ng-class="{ 'panel-success':  productivityForm.BookedDailyRevenue >= 2000, 'panel-danger': productivityForm.BookedDailyRevenue < 2000 }">
         <div class="panel-heading">
-            <p class="margin-0"><span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
+            <p class="margin-0 panel-heading-text"><span ng-bind="productivityForm.ProductivityDate | date:'MM/dd/yyyy'"></span> - <span>{{productivityForm.BookedDailyRevenue | currency}}</span> closed</p>
         </div>
         <div class="panel-body">
             <p class="margin-0">Cases completed: <span ng-bind="productivityForm.DailyCasesCompleted"></span></p>

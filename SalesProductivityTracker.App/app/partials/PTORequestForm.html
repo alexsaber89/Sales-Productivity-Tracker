@@ -11,52 +11,48 @@
         </div>
         <hr />
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-align-center">
-                <label>
-                    <input type="radio" ng-model="ptoRequestForm.ptoType" value="Vacation">
-                    Vacation
-                </label>
-                <label>
-                    <input type="radio" ng-model="ptoRequestForm.ptoType" value="Personal">
-                    Personal
-                </label>
-            </div>
-        </div>
+        <div class="form-field-container">
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <!--<input required type="text" class="form-control margin-0-auto" id="requestedPTODate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired PTO date" ng-model="ptoRequestForm.requestedPTODate" />-->
-                <input type="date" class="form-control margin-0-auto" ng-model="ptoRequestForm.requestedPTODate"
-                       placeholder="Enter desired PTO date" min="2017-01-01" max="2018-12-31" required />
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 form-field">
+                    <label>
+                        <input type="radio" name="ptoRadioGroup" ng-model="ptoRequestForm.ptoType" value="Vacation" required>
+                        Vacation
+                    </label>
+                    <label>
+                        <input type="radio" name="ptoRadioGroup" ng-model="ptoRequestForm.ptoType" value="Personal">
+                        Personal
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <textarea required class="form-control margin-0-auto" id="notes" placeholder="Enter notes" ng-model="ptoRequestForm.notes"></textarea>
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 form-field">
+                    <label for="ptoDate">Desired PTO date</label>
+                    <!--<input required type="text" class="form-control margin-0-auto" id="requestedPTODate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired PTO date" ng-model="ptoRequestForm.requestedPTODate" />-->
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-align-center">
-                <button type="submit" class="btn btn-default">Submit</button>
+                    <!--<input type="date" class="form-control margin-0-auto" name="ptoDate" ng-model="ptoRequestForm.requestedPTODate"
+                           placeholder="Enter desired PTO date" min="2017-01-01" max="2018-12-31" required />-->
+
+                    <input type="text" class="form-control margin-0-auto" name="ptoDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" ng-model="ptoRequestForm.requestedPTODate" placeholder="PTO Date" min="2017-01-01" max="2018-12-31" required />
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 form-field">
+                    <label for="ptoNotes">Notes</label>
+                    <textarea required class="form-control margin-0-auto" id="notes" name="ptoNotes" placeholder="Notes" ng-model="ptoRequestForm.notes"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-align-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </div>
+
         </div>
 
     </form>
-
-    <!-- TODO: Move to manager home view -->
-    <!--<div class="row">
-        <div class="col-md-6 col-md-offset-3 text-align-center">
-            <button class="btn btn-default" ng-click="getAllPTOForms()">getAllPTOForms</button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-align-center">
-            <button class="btn btn-default" ng-click="getPTOFormsByEmployeeId()">getPTOFormsByEmployeeId</button>
-        </div>
-    </div>-->
 
 </div>
