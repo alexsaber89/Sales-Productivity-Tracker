@@ -23,6 +23,9 @@ namespace SalesProductivityTracker.App.Models
         public DateTime ProductivityDate { get; set; }
 
         [Required]
+        public int Quarter { get; set; }
+
+        [Required]
         public float BookedDailyRevenue { get; set; }
 
         [Required]

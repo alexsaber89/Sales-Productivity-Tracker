@@ -25,7 +25,6 @@
 .employee-home-container,
 .manager-home-container,
 .productivity-log-container,
-.pto-log-container,
 .productivity-log,
 .manager-productivity-log,
 .pto-log {
@@ -60,6 +59,14 @@ a {
     Login
 *******************/
 
+/*******************
+  Employee - PTO
+*******************/
+
+.pto-log-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
 
 /*******************

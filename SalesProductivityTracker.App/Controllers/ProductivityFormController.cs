@@ -25,6 +25,11 @@ namespace SalesProductivityTracker.App.Controllers
             return _repo.GetCurrentUserById(_currentEmployeeId);
         }
 
+        public int GetQuarter(DateTime date)
+        {
+            return (date.Month + 2) / 3;
+        }
+
         [HttpGet]
         [Route("api/productivity-forms")]
         public List<ProductivityForm> Get()
@@ -68,6 +73,7 @@ namespace SalesProductivityTracker.App.Controllers
                 DailyCasesCompleted = productivityForm.DailyCasesCompleted,
                 DailyCallCount = productivityForm.DailyCallCount,
                 DailyEmailCount = productivityForm.DailyEmailCount,
+                Quarter = GetQuarter(productivityForm.ProductivityDate),
                 User = GetCurrentApplicationUser()
             };
 
