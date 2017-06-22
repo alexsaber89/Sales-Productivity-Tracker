@@ -13,7 +13,9 @@
 
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <input required type="text" class="form-control margin-0-auto" id="productivityDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired report date" ng-model="productivityForm.productivityDate" />
+                <!--<input required type="text" class="form-control margin-0-auto" id="productivityDate" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Enter desired report date" ng-model="productivityForm.productivityDate" />-->
+                <input type="date" class="form-control margin-0-auto" ng-model="productivityForm.productivityDate"
+                       placeholder="Enter desired report date" min="2017-01-01" max="2017-12-31" required />
             </div>
         </div>
 
