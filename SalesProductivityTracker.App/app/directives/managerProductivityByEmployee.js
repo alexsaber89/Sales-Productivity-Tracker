@@ -52,17 +52,31 @@
 
                     uniqueUserIdArray.forEach(function (userId) {
                         let employee = {};
+                        let employeeNameObj = getUserNameById(forms, userId);
                         employee.UserId = userId;
                         employee.QuarterlyCallCount = getMetricsForEmployeeByQuarter(forms, userId, "DailyCallCount", quarter);
                         employee.QuarterlyEmailCount = getMetricsForEmployeeByQuarter(forms, userId, "DailyEmailCount", quarter);
                         employee.QuarterlyCasesCompleted = getMetricsForEmployeeByQuarter(forms, userId, "DailyCasesCompleted", quarter);
                         employee.BookedQuarterlyRevenue = getMetricsForEmployeeByQuarter(forms, userId, "BookedDailyRevenue", quarter);
-                        employee.Name = getUserNameById(forms, userId);
+                        employee.FirstName = employeeNameObj.FirstName;
+                        employee.LastName = employeeNameObj.LastName;
                         productivityTableObjects.push(employee);
                     });
 
-                    $scope.productivityTableObjects = productivityTableObjects;
+                    productivityTableObjects.sort(function (a, b) {
+                        let nameA = a.LastName.toUpperCase();
+                        let nameB = b.LastName.toUpperCase();
+                        if (nameA < nameB) {
+                            return -1;
+                        }
+                        if (nameA > nameB) {
+                            return 1;
+                        }
 
+                        return 0;
+                    });
+
+                    $scope.productivityTableObjects = productivityTableObjects;
                 };
 
                 const getMetricsForEmployeeByQuarter = function (forms, employeeId, metric, quarter) {
@@ -84,7 +98,11 @@
                         return report.User.Id === employeeId;
                     });
 
-                    return formObject.User.FirstName + " " + formObject.User.LastName;
+                    let employeeNameObj = {};
+                    employeeNameObj.FirstName = formObject.User.FirstName;
+                    employeeNameObj.LastName = formObject.User.LastName;
+
+                    return employeeNameObj;
                 };
 
 
