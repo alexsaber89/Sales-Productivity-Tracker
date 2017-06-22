@@ -9,33 +9,35 @@
     return service;
 
     function login(_username, _password) {
-            $http({
-                method: 'POST',
-                url: "/Token",
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                transformRequest: function (obj) {
-                    var str = [];
-                    for (var p in obj)
-                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                    return str.join("&");
-                },
-                data: { grant_type: "password", username: _username, password: _password }
-            })
-             .then((response) => {
-                 sessionStorage.setItem('token', response.data.access_token);
-                 $rootScope.token = response.data.access_token;
-                 $rootScope.isManager = response.data.isManager;
-                 $http.defaults.headers.common['Authorization'] = `bearer ${response.data.access_token}`;
+        $http({
+            method: 'POST',
+            url: "/Token",
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            transformRequest: function (obj) {
+                var str = [];
+                for (var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                return str.join("&");
+            },
+            data: { grant_type: "password", username: _username, password: _password }
+        })
+         .then((response) => {
+             sessionStorage.setItem('token', response.data.access_token);
+             $rootScope.token = response.data.access_token;
+             $rootScope.isManager = response.data.isManager;
+             $http.defaults.headers.common['Authorization'] = `bearer ${response.data.access_token}`;
 
-                 determineIfManager().then(function (isManager) {
-                     $rootScope.isManager = isManager;
-                     if (isManager) {
-                         $location.url('/manager-home');
-                     } else {
-                         $location.url('/home');
-                     }
-                 });
+             determineIfManager().then(function (isManager) {
+                 $rootScope.isManager = isManager;
+                 if (isManager) {
+                     $location.url('/manager-home');
+                 } else {
+                     $location.url('/home');
+                 }
              });
+         }, (reject) => {
+             alert(reject.data.error_description);
+        });
     };
 
     function register(_username, _password, _confirmPassword, _firstName, _lastName) {
@@ -51,8 +53,10 @@
                 },
                 data: { Email: _username, Password: _password, ConfirmPassword: _confirmPassword, FirstName: _firstName, LastName: _lastName }
             })
-                .then(function (result) {
+                .then((response) => {
                     login(_username, _password);
+                }, (reject) => {
+                    alert(reject.data.Message);
                 });
     };
 
