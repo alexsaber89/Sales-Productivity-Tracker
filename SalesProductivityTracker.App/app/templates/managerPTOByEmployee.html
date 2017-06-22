@@ -1,5 +1,5 @@
 ﻿<div class="pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
-    <div class="panel panel-success pto-panel text-align-center" ng-if="ptoRequestForm.IsApproved">
+    <div class="panel panel-success short-panel text-align-center" ng-if="ptoRequestForm.IsApproved">
         <div class="panel-heading">
             <p class="margin-0"><span>{{ptoRequestForm.User.FirstName}} {{ptoRequestForm.User.LastName}}</span> - <span>{{ptoRequestForm.PTOType}} - Approved</span></p>
         </div>
@@ -12,7 +12,7 @@
             <button type="button" class="btn btn-success pto-button" ng-model="ptoRequestForm.Id" ng-click="approvePTOFormByPTOFormId(ptoRequestForm.Id)">Approve</button>
         </div>
     </div>
-    <div class="panel panel-danger pto-panel text-align-center" ng-if="!ptoRequestForm.IsApproved">
+    <div class="panel panel-danger short-panel text-align-center" ng-if="!ptoRequestForm.IsApproved">
         <div class="panel-heading">
             <p class="margin-0"><span>{{ptoRequestForm.User.FirstName}} {{ptoRequestForm.User.LastName}}</span> - <span>{{ptoRequestForm.PTOType}} - Not Approved</span></p>
         </div>
