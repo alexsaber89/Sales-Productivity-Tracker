@@ -1,32 +1,30 @@
-﻿<div class="pto-log-wrapper">
-    <div class="pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
-        <div class="panel panel-success short-panel text-align-center" ng-if="ptoRequestForm.IsApproved">
-            <div class="panel-heading">
-                <p class="margin-0">{{ptoRequestForm.PTOType}} - Approved</p>
-            </div>
-            <div class="panel-body">
-                <p class="margin-0">Requested PTO Date: <span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span></p>
-                <p class="margin-0">Notes: {{ptoRequestForm.Notes}}</p>
-            </div>
-            <hr class="margin-0" />
-            <div class="panel-body">
-                <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-                <button type="button" class="btn btn-danger pto-button" ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
-            </div>
+﻿<div class="pto-log" ng-repeat="ptoRequestForm in ptoRequestForms">
+    <div class="panel panel-success short-panel text-align-center" ng-if="ptoRequestForm.IsApproved">
+        <div class="panel-heading">
+            <p class="margin-0">{{ptoRequestForm.PTOType}} - Approved</p>
         </div>
-        <div class="panel panel-danger short-panel text-align-center" ng-if="!ptoRequestForm.IsApproved">
-            <div class="panel-heading">
-                <p class="margin-0">{{ptoRequestForm.PTOType}} - Not Approved</p>
-            </div>
-            <div class="panel-body">
-                <p class="margin-0">Requested PTO Date: <span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span></p>
-                <p class="margin-0">Notes: {{ptoRequestForm.Notes}}</p>
-            </div>
-            <hr class="margin-0" />
-            <div class="panel-body">
-                <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
-                <button type="button" class="btn btn-danger pto-button" ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
-            </div>
+        <div class="panel-body">
+            <p class="margin-0">Requested PTO Date: <span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span></p>
+            <p class="margin-0">Notes: {{ptoRequestForm.Notes}}</p>
+        </div>
+        <hr class="margin-0" />
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+            <button type="button" class="btn btn-danger pto-button" ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
+        </div>
+    </div>
+    <div class="panel panel-danger short-panel text-align-center" ng-if="!ptoRequestForm.IsApproved">
+        <div class="panel-heading">
+            <p class="margin-0">{{ptoRequestForm.PTOType}} - Not Approved</p>
+        </div>
+        <div class="panel-body">
+            <p class="margin-0">Requested PTO Date: <span ng-bind="ptoRequestForm.RequestedPTODate | date:'MM/dd/yyyy'"></span></p>
+            <p class="margin-0">Notes: {{ptoRequestForm.Notes}}</p>
+        </div>
+        <hr class="margin-0" />
+        <div class="panel-body">
+            <p class="margin-0">Submitted <span ng-bind="ptoRequestForm.TimeStamp | date:'MM/dd/yyyy h:mm a'"></span></p>
+            <button type="button" class="btn btn-danger pto-button" ng-model="ptoRequestForm.Id" ng-click="deletePTOFormByPTOFormId(ptoRequestForm.Id)">Delete</button>
         </div>
     </div>
 </div>

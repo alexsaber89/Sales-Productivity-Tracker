@@ -63,12 +63,6 @@ a {
   Employee - PTO
 *******************/
 
-.pto-log-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-
 /*******************
 Manager - Productivity
 *******************/
