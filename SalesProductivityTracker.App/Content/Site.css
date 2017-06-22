@@ -26,7 +26,6 @@ html {
     text-align: center;
 }
 
-.login-container,
 .register-container,
 .productivity-form-container,
 .pto-request-form-container,
@@ -69,8 +68,35 @@ h2 {
 
 
 /*******************
-    Login
+       Auth
 *******************/
+
+.auth-container {
+    width: 50%;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.auth-container .panel-heading {
+    font-weight: normal;
+}
+
+.auth-container p {
+    font-size: 1em;
+}
+
+/*.auth-container .panel-primary {
+  border-color: #222222;
+}
+
+.auth-container .panel-primary > .panel-heading {
+  background-color: #222222;
+  border-color: #222222;
+}*/
+
+.short-hr {
+    width: 50%;
+}
 
 /*******************
 Employee - Productivity Log
@@ -84,7 +110,7 @@ Employee - Productivity Log
   Employee - Forms
 *******************/
 .form-field-container {
-    width: 50%;
+    width: 55%;
     margin: 0 auto;
     background-color: #d3d3d3;
     padding: 13px 0;

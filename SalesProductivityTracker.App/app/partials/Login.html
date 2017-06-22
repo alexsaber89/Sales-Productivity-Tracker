@@ -1,36 +1,47 @@
 ﻿<employee-navbar></employee-navbar>
 
-<div class="login-container" ng-controller="loginController">
+<div class="auth-container" ng-controller="loginController">
 
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h2 class="text-align-center">Login</h2>
         </div>
     </div>
-    <hr />
+    <hr />-->
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <input type="text" class="form-control margin-0-auto" id="username" placeholder="Username" ng-model="username" />
-        </div>
-    </div>
+    <div class="panel panel-primary">
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <input type="password" class="form-control margin-0-auto" id="password" placeholder="Password" ng-model="password" />
-        </div>
-    </div>
+        <div class="panel-heading panel-heading-text">Sign In</div>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-align-center">
-            <button class="btn btn-default" ng-click="login()">Sign In</button>
-        </div>
-    </div>
+        <div class="panel-body">
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-align-center">
-            <a class="text-align-center" href="#!/register">New user?</a>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 form-field">
+                    <input type="text" class="form-control margin-0-auto" id="username" placeholder="Username" ng-model="username" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 form-field">
+                    <input type="password" class="form-control margin-0-auto" id="password" placeholder="Password" ng-model="password" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-align-center">
+                    <button class="btn btn-primary" ng-click="login()">Sign In</button>
+                </div>
+            </div>
+            <hr class="short-hr" />
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-align-center">
+                    <p>Don't have an account? <a href="#!/register">Sign up here!</a></p>
+                </div>
+            </div>
+
         </div>
+
     </div>
 
 </div>
