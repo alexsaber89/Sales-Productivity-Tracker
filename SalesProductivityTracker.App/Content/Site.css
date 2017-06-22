@@ -2,6 +2,14 @@
     General
 *******************/
 
+html {
+    overflow-y: scroll; 
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 .border {
     border: 1px solid black;
 }
@@ -58,9 +66,7 @@ h2 {
     Navbar
 *******************/
 
-.pointer {
-    cursor: pointer;
-}
+
 
 /*******************
     Login
