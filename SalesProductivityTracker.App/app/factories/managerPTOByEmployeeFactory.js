@@ -15,15 +15,6 @@
         });
     };
 
-    //TODO: add existing PTOFormID from ng-model
-    //$q refactor
-    //function getPTOFormByPTOFormId() {
-    //    $http.get(`api/pto-form-by-formID`)
-    //        .then(function(result) {
-    //            console.log("PTO By PTO ID", result);
-    //        });
-    //};
-
     function approvePTOFormByPTOFormId(formId) {
         return $q((resolve, reject) => {
             $http.post(`api/manager-pto-form/${formId}`)

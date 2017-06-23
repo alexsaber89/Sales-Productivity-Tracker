@@ -1,6 +1,4 @@
-﻿app.controller("managerHomeController", ["$scope", "$rootScope", "$http", "ptoRequestFormFactory", function ($scope, $rootScope, $http, ptoRequestFormFactory) {
-
-    console.log("$rootScope.isManager: ", $rootScope.isManager);
+﻿app.controller("managerHomeController", ["$scope", function ($scope) {
 
     $scope.showEmployeeProductivity = showEmployeeProductivity;
     $scope.showEmployeePTO = showEmployeePTO;

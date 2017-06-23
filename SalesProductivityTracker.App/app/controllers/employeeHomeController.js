@@ -1,4 +1,4 @@
-﻿app.controller("employeeHomeController", ["$scope", "$rootScope", "$http", "ptoRequestFormFactory", function ($scope, $rootScope, $http, ptoRequestFormFactory) {
+﻿app.controller("employeeHomeController", ["$scope", function ($scope) {
 
     $scope.showProductivityLog = showProductivityLog;
     $scope.showPTOLog = showPTOLog;

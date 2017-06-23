@@ -2,9 +2,6 @@
     .directive("employeeNavbar", function () {
         return {
             restrict: "E",
-            //scope: {
-            //    productivityForms: "<"
-            //},
             templateUrl: "app/templates/employeeNavbar.html",
             controller: function ($scope, $location) {
 

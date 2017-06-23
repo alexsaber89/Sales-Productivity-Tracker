@@ -62,12 +62,6 @@ h2 {
 }
 
 /*******************
-    Navbar
-*******************/
-
-
-
-/*******************
        Auth
 *******************/
 
@@ -84,15 +78,6 @@ h2 {
 .auth-container p {
     font-size: 1em;
 }
-
-/*.auth-container .panel-primary {
-  border-color: #222222;
-}
-
-.auth-container .panel-primary > .panel-heading {
-  background-color: #222222;
-  border-color: #222222;
-}*/
 
 .short-hr {
     width: 50%;

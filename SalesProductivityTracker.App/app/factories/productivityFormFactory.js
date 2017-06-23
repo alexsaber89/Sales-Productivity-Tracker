@@ -24,22 +24,4 @@
         });
     };
 
-    //TODO: add existing ProductivityFormID from ng-model
-    //$q refactor
-    //function getProductivityFormByProductivityFormId() {
-    //    $http.get(`api/productivity-form-by-formID`)
-    //        .then(function(result) {
-    //            console.log("Get Productivity By Productivity ID", result);
-    //        });
-    //};
-
-    //TODO: add existing ProductivityFormID from ng-model
-    //$q refactor
-    //function deleteProductivityFormByProductivityFormId() {
-    //    $http.delete(`api/productivity-form-by-formID`)
-    //        .then(function (result) {
-    //            console.log("Delete Productivity By Productivity ID", result);
-    //        });
-    //};
-
 }]);
