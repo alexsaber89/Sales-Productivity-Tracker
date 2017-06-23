@@ -8,6 +8,8 @@
     function login() {
         if ($scope.username && $scope.password) {
             authFactory.login($scope.username, $scope.password);
+        } else {
+            alert("Please login with a valid username and password.");
         }
     };
 
